@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model; //Son atajos para no escribir el código
 
 class Sucursal extends Model {
 
-    protected $table = 'Sucursales';
+    protected $table = 'sucursales';
     public $timestamps = false;
 
     protected $fillable = [ //Protege la base datos de cualquier inyección.
