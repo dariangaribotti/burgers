@@ -40,36 +40,48 @@ if (isset($msg)) {
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Nombre: *</label>
-                <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="" required>
+                <label>Sucursal: *</label>
+                <select name="lstSucursal" id="lstSucursal" class="form-control">
+                  <option value="">Seleccionado</option>
+                </select>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Cantidad: *</label>
-                <input type="number" id="txtCantidad" name="txtCantidad" class="form-control" value="" required>
-            </div>
-        </div>
-        <div class="row">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
-            <div class="form-group col-lg-6">
-                <label>Precio: *</label>
-                <input type="number" id="txtPrecio" name="txtPrecio" class="form-control" value="" required>
-            </div>
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
-            <div class="form-group col-lg-6">
-                <label>Imagen: *</label>
-                <input type="text" id="txtImagen" name="txtImagen" class="form-control" value="" required>
+                <label>Cliente: *</label>
+                <select name="lstCliente" id="lstSucursal" class="form-control">
+                  <option value="">Seleccionado</option>
+                </select>
             </div>
         </div>
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Categoria: *</label>
-                <input type="text" id="txtCategoria" name="txtCategoria" class="form-control" value="" required>
+                <label>Estado: *</label>
+                <select name="lstEstado" id="lstSucursal" class="form-control">
+                  <option value="">Seleccionado</option>
+                </select>
+            </div>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
+            <div class="form-group col-lg-6">
+                <label>Fecha: *</label>
+                <input type="text" id="txtCantidad" name="txtCantidad" class="form-control" value="" required>
+            </div>
+        </div>
+        <div class="row">
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
+            <div class="form-group col-lg-6">
+                <label>Descripcion: *</label>
+                <input type="text" id="txtPrecioUnitario" name="txtPrecioUnitario" class="form-control" value="" required>
+            </div>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
+            <div class="form-group col-lg-6">
+                <label>Total: *</label>
+                <input type="text" id="txtTotal" name="txtTotal" class="form-control" value="" required>
             </div>
         </div>
     </form>

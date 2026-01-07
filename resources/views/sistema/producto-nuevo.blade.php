@@ -69,7 +69,9 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Categoria: *</label>
-                <input type="text" id="txtCategoria" name="txtCategoria" class="form-control" value="" required>
+                <select class="form-control" name="lstCategoria" id="lstCategoria">
+                  <option value="">Seleccionado</option>
+                </select>
             </div>
         </div>
     </form>
