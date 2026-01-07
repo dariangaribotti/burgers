@@ -13,7 +13,6 @@
 
 /*Route::get('/time' , function(){$date =new Carbon;echo $date ; } );*/
 
-
 Route::group(array('domain' => '127.0.0.1'), function () {
 
     Route::get('/', 'ControladorWebHome@index');
@@ -89,10 +88,46 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* --------------------------------------------- */
 /* CONTROLADOR PATENTES                          */
 /* --------------------------------------------- */
-Route::get('/admin/patentes', 'ControladorPatente@index');
-Route::get('/admin/patente/nuevo', 'ControladorPatente@nuevo');
-Route::post('/admin/patente/nuevo', 'ControladorPatente@guardar');
-Route::get('/admin/patente/cargarGrilla', 'ControladorPatente@cargarGrilla')->name('patente.cargarGrilla');
-Route::get('/admin/patente/eliminar', 'ControladorPatente@eliminar');
-Route::get('/admin/patente/nuevo/{id}', 'ControladorPatente@editar');
-Route::post('/admin/patente/nuevo/{id}', 'ControladorPatente@guardar');
+    Route::get('/admin/patentes', 'ControladorPatente@index');
+    Route::get('/admin/patente/nuevo', 'ControladorPatente@nuevo');
+    Route::post('/admin/patente/nuevo', 'ControladorPatente@guardar');
+    Route::get('/admin/patente/cargarGrilla', 'ControladorPatente@cargarGrilla')->name('patente.cargarGrilla');
+    Route::get('/admin/patente/eliminar', 'ControladorPatente@eliminar');
+    Route::get('/admin/patente/nuevo/{id}', 'ControladorPatente@editar');
+    Route::post('/admin/patente/nuevo/{id}', 'ControladorPatente@guardar');
+
+/* --------------------------------------------- */
+/* CONTROLADOR CATEGORIA                        */
+/* --------------------------------------------- */
+
+    Route::get('/admin/categoria/nuevo', 'ControladorCategoria@nuevo');
+
+/* --------------------------------------------- */
+/* CONTROLADOR CLIENTE                        */
+/* --------------------------------------------- */
+
+    Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
+
+/* --------------------------------------------- */
+/* CONTROLADOR PRODUCTO                          */
+/* --------------------------------------------- */
+
+    Route::get('/admin/producto/nuevo', 'ControladorProducto@nuevo');
+
+/* --------------------------------------------- */
+/* CONTROLADOR PEDIDO                            */
+/* --------------------------------------------- */
+
+    Route::get('/admin/pedido/nuevo', 'ControladorPedido@nuevo');
+
+/* --------------------------------------------- */
+/* CONTROLADOR POSTULACION                       */
+/* --------------------------------------------- */
+
+    Route::get('/admin/postulacion/nuevo', 'ControladorPostulacion@nuevo');
+
+/* --------------------------------------------- */
+/* CONTROLADOR SUCURSAL                          */
+/* --------------------------------------------- */
+
+    Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
