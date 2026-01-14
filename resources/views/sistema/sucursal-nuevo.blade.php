@@ -40,7 +40,7 @@ if (isset($msg)) {
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Telefono: *</label>
+                <label>Teléfono: *</label>
                 <input type="text" id="txtTelefono" name="txtNombre" class="form-control" value="" required>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>

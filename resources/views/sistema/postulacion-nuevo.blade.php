@@ -61,7 +61,7 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Correo: *</label>
-                <input type="text" id="txtCorreo" name="txtCorreo" class="form-control" value="" required>
+                <input type="email" id="txtCorreo" name="txtCorreo" class="form-control" value="" required>
             </div>
         </div>
         <div class="row">

@@ -55,7 +55,7 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Correo: *</label>
-                <input type="text" id="txtCorreo" name="txtCorreo" class="form-control" value="" required>
+                <input type="email" id="txtCorreo" name="txtCorreo" class="form-control" value="" required>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
@@ -75,7 +75,7 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Clave: *</label>
-                <input type="text" id="txtClave" name="txtClave" class="form-control" value="" required>
+                <input type="password" id="txtClave" name="txtClave" class="form-control" value="" required>
             </div>
         </div>
     </form>

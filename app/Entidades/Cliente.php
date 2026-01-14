@@ -15,7 +15,7 @@ class Cliente extends Model {
     ];
 
     public function cargarDesdeRequest($request) {
-        $this->idcliente = $request->input('id') != "0" ? $request->input('id') : $this->idcliente;
+        $this->idcliente = $request->input('id') != "0" ? $request->input('id') : $this->idcliente; //
         $this->nombre = $request->input('txtNombre');
         $this->apellido = $request->input('txtApellido');
         $this->correo = $request->input('txtCorreo');

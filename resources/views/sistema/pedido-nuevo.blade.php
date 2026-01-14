@@ -49,7 +49,7 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Cliente: *</label>
-                <select name="lstCliente" id="lstSucursal" class="form-control">
+                <select name="lstCliente" id="lstCliente" class="form-control">
                   <option value="">Seleccionado</option>
                 </select>
             </div>
@@ -59,7 +59,7 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Estado: *</label>
-                <select name="lstEstado" id="lstSucursal" class="form-control">
+                <select name="lstEstado" id="lstEstado" class="form-control">
                   <option value="">Seleccionado</option>
                 </select>
             </div>
@@ -67,21 +67,21 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Fecha: *</label>
-                <input type="text" id="txtCantidad" name="txtCantidad" class="form-control" value="" required>
+                <input type="date" id="txtFecha" name="txtFecha" class="form-control" value="" required>
             </div>
         </div>
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Descripcion: *</label>
-                <input type="text" id="txtPrecioUnitario" name="txtPrecioUnitario" class="form-control" value="" required>
+                <label>Descripción: *</label>
+                <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control" value="" required>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Total: *</label>
-                <input type="text" id="txtTotal" name="txtTotal" class="form-control" value="" required>
+                <input type="number" id="txtTotal" name="txtTotal" class="form-control" value="" required>
             </div>
         </div>
     </form>

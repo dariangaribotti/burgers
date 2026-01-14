@@ -68,7 +68,7 @@ if (isset($msg)) {
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Categoria: *</label>
+                <label>Categoría: *</label>
                 <select class="form-control" name="lstCategoria" id="lstCategoria">
                   <option value="">Seleccionado</option>
                 </select>
