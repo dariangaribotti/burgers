@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Pedido;
 use App\Entidades\Sucursal;
+use App\Entidades\Cliente;
+use App\Entidades\Estado;
 use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php';
@@ -14,7 +16,13 @@ class ControladorPedido extends Controller {
             $titulo = "Nuevo pedido";
             $sucursal = new Sucursal();
             $aSucursales = $sucursal->obtenerTodos();
-            return view("sistema.pedido-nuevo", compact('titulo', 'aSucursales'));
+
+            $cliente = new Cliente();
+            $aClientes = $cliente->obtenerTodos();
+
+            $estado = new Estado();
+            $aEstados = $estado->obtenerTodos();
+            return view("sistema.pedido-nuevo", compact('titulo', 'aSucursales', 'aClientes', 'aEstados'));
       }
 
       public function guardar(request $request){ 
