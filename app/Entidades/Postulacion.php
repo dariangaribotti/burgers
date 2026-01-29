@@ -1,9 +1,10 @@
 <?php 
 
-namespace App\Entidades\Sistema; //Evitamos choques de nombre, el namespace los diferencia.
+namespace App\Entidades; //Evitamos choques de nombre, el namespace los diferencia.
 
 use DB; //Importa la fachada de base de datos
 use Illuminate\Database\Eloquent\Model; //Son atajos para no escribir el código completo.
+
 
 class Postulacion extends Model {
 

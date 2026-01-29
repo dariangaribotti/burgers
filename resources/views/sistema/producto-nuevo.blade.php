@@ -1,3 +1,14 @@
+<?php 
+
+use App\Entidades\Producto;
+use App\Entidades\Categoria;
+
+$producto = new Producto();
+$productos = $producto->obtenerTodos();
+
+$categoria = new Categoria();
+$categorias = $categoria->obtenerTodos();
+?>
 @extends('plantilla')
 @section('titulo', "$titulo")
 @section('scripts')
@@ -60,8 +71,8 @@ if (isset($msg)) {
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Imagen: *</label>
-                <input type="text" id="txtImagen" name="txtImagen" class="form-control" value="" required>
+                <label>Imagen: </label>
+                <input type="file" id="fileImagen" name="fileImagen" class="form-control" value="">
             </div>
         </div>
         <div class="row">

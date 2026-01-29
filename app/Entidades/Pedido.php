@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Entidades\Sistema; //Evitamos choques de nombre, el namespace los diferencia.
+namespace App\Entidades; //Evitamos choques de nombre, el namespace los diferencia.
 
 use DB; //Importa la fachada de base de datos
 use Illuminate\Database\Eloquent\Model; //Son atajos para no escribir el código completo.
@@ -19,9 +19,9 @@ class Pedido extends Model {
         $this->fecha = $request->input('txtFecha');
         $this->descripcion = $request->input('txtDescripcion');
         $this->total = $request->input('txtTotal');
-        $this->fk_idsucursal = $request->input('txtSucursal');
-        $this->fk_idcliente = $request->input('txtCliente');
-        $this->fk_idestado = $request->input('txtEstado');
+        $this->fk_idsucursal = $request->input('lstSucursal');
+        $this->fk_idcliente = $request->input('lstCliente');
+        $this->fk_idestado = $request->input('lstEstado');
     }
 
     public function insertar()
@@ -40,7 +40,7 @@ class Pedido extends Model {
             $this->total,
             $this->fk_idsucursal,
             $this->fk_idcliente,
-            $this->fk_idestado,
+            $this->fk_idestado
         ]);
         return $this->idpedido = DB::getPdo()->lastInsertId();
     }
@@ -101,7 +101,6 @@ class Pedido extends Model {
         }
         return null;
     }
-
 }
 
 ?>

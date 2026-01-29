@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Entidades\Sistema\Cliente; //include_once "app/Entidades/Sistema/Cliente.php";
+use App\Entidades\Cliente; //include_once "app/Entidades/Sistema/Cliente.php";
 use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php'; //La busca desde la raiz del proyecto require app_path(), desde el directorio de App
@@ -17,7 +17,7 @@ class ControladorCliente extends Controller {
     public function guardar(Request $request) { // Prevenimos alguna inyección gracias al Request de Laravel
         try {
             //Define la entidad servicio
-            $titulo = "Modificar menú";
+            $titulo = "Modificar cliente";
             $entidad = new Cliente();
             $entidad->cargarDesdeRequest($request);
 
@@ -51,7 +51,7 @@ class ControladorCliente extends Controller {
         $cliente = new Cliente();
         $cliente->obtenerPorId($id);
         
-        return view('sistema.cliente-nuevo', compact('msg', 'menu', 'titulo')) . '?id=' . $cliente->idcliente;
+        return view('sistema.cliente-nuevo', compact('msg', 'cliente', 'titulo')) . '?id=' . $cliente->idcliente;
     }
 }
 ?>

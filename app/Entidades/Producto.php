@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Entidades\Sistema;
+namespace App\Entidades;
 
 use DB;
 use Illuminate\Database\Eloquent\Model;
@@ -18,10 +18,10 @@ class Producto extends Model {
     {
         $this->idproducto = $request->input('id') != "0" ? $request->input('id') : $this->idproducto;
         $this->nombre = $request->input('txtNombre');
-        $this->cantidad = $request->input('txtCantidad');
+        $this->cantidad = $request->input('txtCantidad') != "" ? $request->input('txtCantidad') : 0;
         $this->precio = $request->input('txtPrecio') != "" ? $request->input('txtPrecio') : 0;
-        $this->imagen = $request->input('txtImagen');
-        $this->fk_idcategoria = $request->input('txtCategoria');
+        $this->imagen = $request->input('fileImagen');
+        $this->fk_idcategoria = $request->input('lstCategoria');
     }
 
     public function insertar()
@@ -31,8 +31,8 @@ class Producto extends Model {
                 cantidad,
                 precio,
                 imagen,
-                fk_idcategoria,
-            ) VALUES (?, ?, ?, ?, ?, ?);";
+                fk_idcategoria
+            ) VALUES (?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->nombre,
             $this->cantidad,

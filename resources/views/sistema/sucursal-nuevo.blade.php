@@ -13,7 +13,7 @@
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sistema/sucursal/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/sucursal/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fa fa-floppy-o" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     @if($globalId > 0)
@@ -40,22 +40,28 @@ if (isset($msg)) {
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Teléfono: *</label>
-                <input type="text" id="txtTelefono" name="txtNombre" class="form-control" value="" required>
+                <label>Nombre: *</label>
+                <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="" required>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Dirección: *</label>
-                <input type="text" id="txtDireccion" name="txtApellido" class="form-control" value="" required>
+                <label>Teléfono: *</label>
+                <input type="text" id="txtTelefono" name="txtTelefono" class="form-control" value="" required>
             </div>
         </div>
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
+                <label>Dirección: *</label>
+                <input type="text" id="txtDireccion" name="txtDireccion" class="form-control" value="" required>
+            </div>
+            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
+            <div class="form-group col-lg-6">
                 <label>Linkmapa: *</label>
-                <input type="text" id="txtLinkMapa" name="txtCorreo" class="form-control" value="" required>
+                <input type="text" id="txtMapa" name="txtMapa" class="form-control" value="" required>
             </div>
         </div>
     </form>

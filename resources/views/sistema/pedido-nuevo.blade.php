@@ -38,15 +38,18 @@ if (isset($msg)) {
     <form id="form1" method="POST">
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
+            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}">
             <div class="form-group col-lg-6">
                 <label>Sucursal: *</label>
                 <select name="lstSucursal" id="lstSucursal" class="form-control">
                   <option value="">Seleccionado</option>
+                        @foreach($aSucursales as $sucursal)
+                        <option value="{{ sucursal->idsucursal }}">{{ sucursal->nombre }}</option>   
+                        @endforeach
                 </select>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
+            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}">
             <div class="form-group col-lg-6">
                 <label>Cliente: *</label>
                 <select name="lstCliente" id="lstCliente" class="form-control">
@@ -56,7 +59,7 @@ if (isset($msg)) {
         </div>
         <div class="row">
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
+            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}">
             <div class="form-group col-lg-6">
                 <label>Estado: *</label>
                 <select name="lstEstado" id="lstEstado" class="form-control">
