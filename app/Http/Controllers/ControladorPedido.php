@@ -25,6 +25,11 @@ class ControladorPedido extends Controller {
             return view("sistema.pedido-nuevo", compact('titulo', 'aSucursales', 'aClientes', 'aEstados'));
       }
 
+      public function index(){
+            $titulo = "Listado de pedidos";
+            return view('sistema.pedido-listar', compact('titulo'));
+      }
+
       public function guardar(request $request){ 
              try {
             //Define la entidad servicio

@@ -43,11 +43,8 @@ if (isset($msg)) {
                 <label>Sucursal: *</label>
                 <select name="lstSucursal" id="lstSucursal" class="form-control">
                   <option value="">Seleccionado</option>
-
                         @foreach($aSucursales as $sucursal)
-
-                        <option value="{{ $sucursal->idsucursal }}">{{ $sucursal->nombre }}</option>   
-                        
+                        <option value="{{ $sucursal->idsucursal }}">{{ $sucursal->nombre }}</option>
                         @endforeach
                 </select>
             </div>
@@ -58,9 +55,7 @@ if (isset($msg)) {
                 <select name="lstCliente" id="lstCliente" class="form-control">
                   <option value="">Seleccionado</option>
                   @foreach($aClientes as $cliente)
-
                     <option value="{{ $cliente->idcliente }}">{{ $cliente->nombre }}</option>
-
                   @endforeach
                 </select>
             </div>
@@ -73,9 +68,7 @@ if (isset($msg)) {
                 <select name="lstEstado" id="lstEstado" class="form-control">
                   <option value="">Seleccionado</option>
                     @foreach($aEstados as $estado)
-
                         <option value="{{ $estado->idestado }}">{{ $estado->nombre }}</option>
-
                     @endforeach
                 </select>
             </div>

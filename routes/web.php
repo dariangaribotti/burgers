@@ -100,6 +100,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* CONTROLADOR CATEGORIA                        */
 /* --------------------------------------------- */
 
+    Route::get('/admin/categorias', 'ControladorCategoria@index');
     Route::get('/admin/categoria/nuevo', 'ControladorCategoria@nuevo');
     Route::post('/admin/categoria/nuevo','ControladorCategoria@guardar');
 
@@ -107,6 +108,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* CONTROLADOR CLIENTE                        */
 /* --------------------------------------------- */
 
+    Route::get('/admin/clientes', 'ControladorCliente@index');
     Route::get('/admin/cliente/nuevo', 'ControladorCliente@nuevo');
     Route::post('/admin/cliente/nuevo', 'ControladorCliente@guardar');
 
@@ -114,6 +116,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* CONTROLADOR PRODUCTO                          */
 /* --------------------------------------------- */
 
+    Route::get('/admin/productos', 'ControladorProducto@index');
     Route::get('/admin/producto/nuevo', 'ControladorProducto@nuevo');
     Route::post('/admin/producto/nuevo','ControladorProducto@guardar');
 
@@ -121,6 +124,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* CONTROLADOR PEDIDO                            */
 /* --------------------------------------------- */
 
+    Route::get('/admin/pedidos', 'ControladorPedido@index');
     Route::get('/admin/pedido/nuevo', 'ControladorPedido@nuevo');
     Route::post('/admin/pedido/nuevo', 'ControladorPedido@guardar');
 
@@ -128,6 +132,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* CONTROLADOR POSTULACION                       */
 /* --------------------------------------------- */
 
+    Route::get('/admin/postulaciones', 'ControladorPostulacion@index');
     Route::get('/admin/postulacion/nuevo', 'ControladorPostulacion@nuevo');
     Route::post('/admin/postulacion/nuevo', 'ControladorPostulacion@guardar');
 
@@ -135,5 +140,6 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* CONTROLADOR SUCURSAL                          */
 /* --------------------------------------------- */
 
+    Route::get('/admin/sucursales', 'ControladorSucursal@index');
     Route::get('/admin/sucursal/nuevo', 'ControladorSucursal@nuevo');
     Route::post('/admin/sucursal/nuevo','ControladorSucursal@guardar');

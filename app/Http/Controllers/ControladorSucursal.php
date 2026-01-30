@@ -13,6 +13,11 @@ class ControladorSucursal extends Controller{
         return view('sistema.sucursal-nuevo', compact('titulo'));
     }
 
+	public function index(){
+		$titulo = "Listado de sucursales";
+		return view('sistema.sucursal-listar', compact('titulo'));
+	}
+
     public function guardar(request $request){
         try {
             //Define la entidad servicio

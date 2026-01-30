@@ -14,6 +14,11 @@ class ControladorProducto extends Controller {
         return view('sistema.producto-nuevo', compact('titulo'));
     }
 
+    public function index(){
+      $titulo = "Listado de Productos";
+      return view('sistema.producto-listar', compact('titulo'));
+    }
+
     public function guardar(request $request){
          try {
             //Define la entidad servicio

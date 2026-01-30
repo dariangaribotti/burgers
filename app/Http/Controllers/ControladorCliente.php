@@ -14,6 +14,11 @@ class ControladorCliente extends Controller {
       return view('sistema.cliente-nuevo', compact('titulo'));
     }
 
+    public function index(){
+      $titulo = "Listado de clientes";
+      return view('sistema.cliente-listar', compact('titulo'));   
+    }
+
     public function guardar(Request $request) { // Prevenimos alguna inyección gracias al Request de Laravel
         try {
             //Define la entidad servicio

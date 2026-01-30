@@ -13,6 +13,11 @@ class ControladorPostulacion extends Controller{
             return view('sistema.postulacion-nuevo', compact('titulo'));
       }
 
+      public function index(){
+            $titulo = "Listado de Postulaciones";
+            return view('sistema.postulacion-listar', compact('titulo'));
+      }
+
       public function guardar(request $request){
 		try {
             //Define la entidad servicio
