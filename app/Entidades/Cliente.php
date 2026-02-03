@@ -106,6 +106,40 @@ class Cliente extends Model {
         return null;
     }
 
+    public function obtenerFiltrado()
+    {
+        $request = $_REQUEST;
+        $columns = array(
+            0 => 'nombre',
+            1 => 'apellido',
+            2 => 'correo',
+            3 => 'dni',
+        );
+        $sql = "SELECT DISTINCT
+                    idcliente,
+                    nombre,
+                    apellido,
+                    correo,
+                    dni,
+                    celular,
+                    clave
+                    FROM clientes
+                WHERE 1=1
+                ";
+
+        //Realiza el filtrado
+        if (!empty($request['search']['value'])) {
+            $sql .= " AND ( nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR apellido LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR correo LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR dni LIKE '%" . $request['search']['value'] . "%' )";
+        }
+        $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
+
+        $lstRetorno = DB::select($sql);
+
+        return $lstRetorno;
+    }
 }
 
 ?>

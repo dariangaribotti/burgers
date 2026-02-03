@@ -59,5 +59,35 @@ class ControladorCategoria extends Controller
         
         return view('sistema.categoria-nuevo', compact('msg', 'categoria', 'titulo')) . '?id=' . $categoria->idcategoria;
     }
+
+    public function cargarGrilla()
+    {
+        $request = $_REQUEST;
+
+        $categoria = new Categoria();
+        $aCategoria = $categoria->obtenerFiltrado();
+
+        $data = array();
+        $cont = 0;
+
+        $inicio = $request['start'];
+        $registros_por_pagina = $request['length'];
+
+
+        for ($i = $inicio; $i < count($aCategoria) && $cont < $registros_por_pagina; $i++) {
+            $row = array();
+            $row[] = '<a href="/admin/categoria/' . $aCategoria[$i]->idcategoria . '">' . $aCategoria[$i]->nombre . '</a>';
+            $cont++;
+            $data[] = $row;
+        }
+        
+        $json_data = array(
+            "draw" => intval($request['draw']),
+            "recordsTotal" => count($aCategoria), //cantidad total de registros sin paginar
+            "recordsFiltered" => count($aCategoria), //cantidad total de registros en la paginacion
+            "data" => $data,
+        );
+        return json_encode($json_data);
+    }
 }
 

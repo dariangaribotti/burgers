@@ -82,6 +82,9 @@ if (isset($msg)) {
                 <label>Categoría: *</label>
                 <select class="form-control" name="lstCategoria" id="lstCategoria">
                   <option value="">Seleccionado</option>
+                    @foreach($aCategorias as $categoria)
+                        <option value="{{ $categoria->idcategoria }}">{{ $categoria->nombre }}</option>
+                    @endforeach
                 </select>
             </div>
         </div>

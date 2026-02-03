@@ -24,11 +24,11 @@ if (isset($msg)) {
 <table id="grilla" class="display">
     <thead>
         <tr>
-            <th>Fecha</th>
+            <th>Cliente </th>
             <th>Descripcion</th>
             <th>Total</th>
+            <th>Fecha</th>
             <th>Sucursal</th>
-            <th>Cliente</th>
             <th>Estado</th>
         </tr>
     </thead>
@@ -42,7 +42,7 @@ if (isset($msg)) {
 	    "bSearchable": true,
         "pageLength": 25,
         "order": [[ 0, "asc" ]],
-	    "ajax": "{{ route('menu.cargarGrilla') }}"
+	    "ajax": "{{ route('pedido.cargarGrilla') }}"
 	});
 </script>
 @endsection

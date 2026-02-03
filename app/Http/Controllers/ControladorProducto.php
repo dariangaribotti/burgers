@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Producto; //include_once "app/Entidades/Sistema/Menu.php";
+use App\Entidades\Categoria;
 use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php';
@@ -11,12 +12,47 @@ class ControladorProducto extends Controller {
       
     public function nuevo(){
         $titulo = "Nuevo producto";
-        return view('sistema.producto-nuevo', compact('titulo'));
+        $categoria = new Categoria();
+        $aCategorias = $categoria->obtenerTodos();
+        return view('sistema.producto-nuevo', compact('titulo', 'aCategorias'));
     }
 
     public function index(){
       $titulo = "Listado de Productos";
       return view('sistema.producto-listar', compact('titulo'));
+    }
+
+    public function cargarGrilla(){
+        $request = $_REQUEST;
+
+        $entidad = new Producto();
+        $aProducto = $entidad->obtenerFiltrado();
+
+        $data = array();
+        $cont = 0;
+
+        $inicio = $request['start'];
+        $registros_por_pagina = $request['length'];
+
+
+        for ($i = $inicio; $i < count($aProducto) && $cont < $registros_por_pagina; $i++) {
+            $row = array();
+            $row[] = '<a href="/admin/producto/' . $aProducto[$i]->idproducto . '">' . $aProducto[$i]->nombre . '</a>';
+            $row[] = $aProducto[$i]->cantidad;
+            $row[] = $aProducto[$i]->precio;
+            $row[] = $aProducto[$i]->imagen;
+            $row[] = $aProducto[$i]->fk_idcategoria;
+            $cont++;
+            $data[] = $row;
+        }
+
+        $json_data = array(
+            "draw" => intval($request['draw']),
+            "recordsTotal" => count($aProducto), //cantidad total de registros sin paginar
+            "recordsFiltered" => count($aProducto), //cantidad total de registros en la paginacion
+            "data" => $data,
+        );
+        return json_encode($json_data);
     }
 
     public function guardar(request $request){

@@ -101,6 +101,41 @@ class Pedido extends Model {
         }
         return null;
     }
+
+    public function obtenerFiltrado()
+    {
+        $request = $_REQUEST;
+        $columns = array(
+            0 => 'fk_idcliente',
+            1 => 'fecha',
+            2 => 'descripcion',
+            3 => 'total',
+        );
+        $sql = "SELECT DISTINCT
+                    idpedido,
+                    fecha,
+                    descripcion,
+                    total,
+                    fk_idsucursal,
+                    fk_idcliente,
+                    fk_idestado
+                    FROM pedidos
+                WHERE 1=1
+                ";
+
+        //Realiza el filtrado
+        if (!empty($request['search']['value'])) {
+            $sql .= " AND ( fk_idcliente LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR fecha LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR descripcion LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " OR total LIKE '%" . $request['search']['value'] . "%' )";
+        }
+        $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
+
+        $lstRetorno = DB::select($sql);
+
+        return $lstRetorno;
+    }
 }
 
 ?>
