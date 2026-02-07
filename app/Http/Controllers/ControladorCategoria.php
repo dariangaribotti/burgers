@@ -20,6 +20,13 @@ class ControladorCategoria extends Controller
       return view('sistema.categoria-listar', compact('titulo'));
     }
 
+    public function editar($id){
+            $titulo = "Editar";
+            $categoria = new Categoria();
+            $categoria->obtenerPorId($id);
+            return view('sistema.categoria-nuevo', compact('titulo', 'categoria'));
+    }
+
     public function guardar(Request $request){
         try {
             //Define la entidad servicio
