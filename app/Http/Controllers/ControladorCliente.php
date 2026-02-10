@@ -19,6 +19,13 @@ class ControladorCliente extends Controller {
       return view('sistema.cliente-listar', compact('titulo'));   
     }
 
+    public function editar($id){
+        $titulo = "Editar";
+        $cliente = new Cliente();
+        $cliente->obtenerPorId($id);
+        return view('sistema.cliente-nuevo', compact('titulo', 'cliente'));
+    }
+
     public function cargarGrilla()
     {
         $request = $_REQUEST;

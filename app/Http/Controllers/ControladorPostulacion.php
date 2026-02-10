@@ -18,6 +18,13 @@ class ControladorPostulacion extends Controller{
             return view('sistema.postulacion-listar', compact('titulo'));
       }
 
+      public function editar($id){
+        $titulo = "Editar";
+        $postulacion = new Postulacion();
+        $postulacion->obtenerPorId($id);
+        return view('sistema.postulacion-nuevo', compact('titulo', 'postulacion'));
+    }
+
       public function guardar(request $request){
 		try {
             //Define la entidad servicio

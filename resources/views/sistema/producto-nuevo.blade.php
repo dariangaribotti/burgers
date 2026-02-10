@@ -1,13 +1,4 @@
 <?php 
-
-use App\Entidades\Producto;
-use App\Entidades\Categoria;
-
-$producto = new Producto();
-$productos = $producto->obtenerTodos();
-
-$categoria = new Categoria();
-$categorias = $categoria->obtenerTodos();
 ?>
 @extends('plantilla')
 @section('titulo', "$titulo")
@@ -52,13 +43,13 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
-                <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="" required>
+                <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{$producto->nombre}}" required>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Cantidad: *</label>
-                <input type="number" id="txtCantidad" name="txtCantidad" class="form-control" value="" required>
+                <input type="number" id="txtCantidad" name="txtCantidad" class="form-control" value="{{$producto->cantidad}}" required>
             </div>
         </div>
         <div class="row">
@@ -66,13 +57,13 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Precio: *</label>
-                <input type="number" id="txtPrecio" name="txtPrecio" class="form-control" value="" required>
+                <input type="number" id="txtPrecio" name="txtPrecio" class="form-control" value="{{$producto->precio}}" required>
             </div>
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Imagen: </label>
-                <input type="file" id="fileImagen" name="fileImagen" class="form-control" value="">
+                <input type="file" id="fileImagen" name="fileImagen" class="form-control" value="{{$producto->imagen}}">
             </div>
         </div>
         <div class="row">

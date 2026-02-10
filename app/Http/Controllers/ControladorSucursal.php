@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Sucursal;
+use App\Entidades\Categoria;
 use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php';
@@ -17,6 +18,15 @@ class ControladorSucursal extends Controller{
 		$titulo = "Listado de sucursales";
 		return view('sistema.sucursal-listar', compact('titulo'));
 	}
+
+    public function editar($id){
+        $titulo = "Editar";
+        $sucursal = new Sucursal();
+        $sucursal->obtenerPorId($id);
+        $categoria = new Categoria();
+        $categoria->obtenerPorId($id);
+        return view('sistema.sucursal-nuevo', compact('titulo', 'sucursal', 'categoria'));
+    }
 
     public function guardar(request $request){
         try {

@@ -14,6 +14,10 @@ class ControladorPedido extends Controller {
       
       public function nuevo(){
             $titulo = "Nuevo pedido";
+
+            $pedido = new Pedido();
+            $pedido = $pedido->obtenerTodos();
+
             $sucursal = new Sucursal();
             $aSucursales = $sucursal->obtenerTodos();
 
@@ -22,13 +26,30 @@ class ControladorPedido extends Controller {
 
             $estado = new Estado();
             $aEstados = $estado->obtenerTodos();
-            return view("sistema.pedido-nuevo", compact('titulo', 'aSucursales', 'aClientes', 'aEstados'));
+            return view("sistema.pedido-nuevo", compact('titulo', 'pedido', 'aSucursales', 'aClientes', 'aEstados'));
       }
 
       public function index(){
             $titulo = "Listado de pedidos";
             return view('sistema.pedido-listar', compact('titulo'));
       }
+
+      public function editar($id){
+        $titulo = "Editar";
+
+        $pedido = new Pedido();
+        $pedido->obtenerPorId($id);
+
+        $sucursal = new Sucursal();
+        $sucursal->obtenerPorId($id);
+
+        $cliente = new Cliente();
+        $cliente->obtenerPorId($id);
+
+        $estado = new Estado();
+        $estado->obtenerPorId($id);
+        return view('sistema.pedido-nuevo', compact('titulo', 'pedido', 'sucursal', 'cliente', 'estado'));
+    }
 
       public function guardar(request $request){ 
              try {

@@ -22,6 +22,18 @@ class ControladorProducto extends Controller {
       return view('sistema.producto-listar', compact('titulo'));
     }
 
+    public function editar($id){
+        $titulo = "Editar";
+
+        $producto = new Producto();
+        $producto->obtenerPorId($id);
+
+        $categoria = new Categoria();
+        $aCategorias = $categoria->obtenerTodos();
+        
+        return view('sistema.producto-nuevo', compact('titulo', 'producto', 'aCategorias'));
+    }
+
     public function cargarGrilla(){
         $request = $_REQUEST;
 

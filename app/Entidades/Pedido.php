@@ -81,6 +81,7 @@ class Pedido extends Model {
     public function obtenerPorId($idPedido)
     {
         $sql = "SELECT
+                idpedido,
                 fecha,
                 descripcion,
                 total,
