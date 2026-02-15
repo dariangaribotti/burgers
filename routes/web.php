@@ -144,7 +144,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/admin/postulacion/nuevo', 'ControladorPostulacion@nuevo');
     Route::get('/admin/postulacion/cargarGrilla', 'ControladorPostulacion@cargarGrilla')->name('postulacion.cargarGrilla');
     Route::post('/admin/postulacion/nuevo', 'ControladorPostulacion@guardar');
-    Route::post('/admin/producto/{id}','ControladorProducto@guardar');
+    Route::get('/admin/postulacion/{id}','ControladorPostulacion@editar');
 
 /* --------------------------------------------- */
 /* CONTROLADOR SUCURSAL                          */

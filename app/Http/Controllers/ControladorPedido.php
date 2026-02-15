@@ -16,7 +16,6 @@ class ControladorPedido extends Controller {
             $titulo = "Nuevo pedido";
 
             $pedido = new Pedido();
-            $pedido = $pedido->obtenerTodos();
 
             $sucursal = new Sucursal();
             $aSucursales = $sucursal->obtenerTodos();

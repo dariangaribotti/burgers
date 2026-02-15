@@ -76,7 +76,7 @@ if (isset($msg)) {
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Fecha: *</label>
-                <input type="date" id="txtFecha" name="txtFecha" class="form-control" value="{{$pedido->fecha}}" required>
+                <input type="date" id="txtFecha" name="txtFecha" class="form-control" value="{{ old('txtFecha', $pedido->fecha ?? '') }}" required>
             </div>
         </div>
         <div class="row">

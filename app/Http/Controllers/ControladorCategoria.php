@@ -13,7 +13,6 @@ class ControladorCategoria extends Controller
     {
         $titulo = "Nueva categoria";
         $categoria = new Categoria();
-        $categoria->obtenerTodos();
         return view('sistema.categoria-nuevo', compact('titulo', 'categoria'));
     }
 

@@ -10,7 +10,8 @@ require app_path() . '/start/constants.php';
 class ControladorPostulacion extends Controller{
       public function nuevo(){
             $titulo = "Nueva postulación";
-            return view('sistema.postulacion-nuevo', compact('titulo'));
+            $postulacion = new Postulacion();
+            return view('sistema.postulacion-nuevo', compact('titulo' , 'postulacion'));
       }
 
       public function index(){
