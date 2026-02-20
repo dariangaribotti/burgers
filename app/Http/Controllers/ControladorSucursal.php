@@ -12,6 +12,7 @@ class ControladorSucursal extends Controller{
     {
         $titulo = "Nueva sucursal";
         $sucursal = new Sucursal();
+
         return view('sistema.sucursal-nuevo', compact('titulo', 'sucursal'));
     }
 
@@ -22,8 +23,10 @@ class ControladorSucursal extends Controller{
 
     public function editar($id){
         $titulo = "Editar";
+
         $sucursal = new Sucursal();
         $sucursal->obtenerPorId($id);
+
         $categoria = new Categoria();
         $categoria->obtenerPorId($id);
         return view('sistema.sucursal-nuevo', compact('titulo', 'sucursal', 'categoria'));

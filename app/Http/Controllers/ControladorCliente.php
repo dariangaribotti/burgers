@@ -27,6 +27,14 @@ class ControladorCliente extends Controller {
         return view('sistema.cliente-nuevo', compact('titulo', 'cliente'));
     }
 
+    public function eliminar(Request $request){
+      print_r($request->input("id"));
+      exit;
+      $cliente = new Cliente();
+      $cliente->idcliente = $request->input("id");
+      $cliente->eliminar();
+    }
+
     public function cargarGrilla()
     {
         $request = $_REQUEST;

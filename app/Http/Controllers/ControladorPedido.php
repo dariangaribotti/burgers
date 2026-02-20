@@ -47,7 +47,11 @@ class ControladorPedido extends Controller {
 
         $estado = new Estado();
         $estado->obtenerPorId($id);
-        return view('sistema.pedido-nuevo', compact('titulo', 'pedido', 'sucursal', 'cliente', 'estado'));
+
+        $aSucursales = $sucursal->obtenerTodos();
+        $aClientes = $cliente->obtenerTodos();
+        $aEstados = $estado->obtenerTodos();
+        return view('sistema.pedido-nuevo', compact('titulo', 'pedido', 'sucursal', 'cliente', 'estado', 'aSucursales', 'aClientes', 'aEstados'));
     }
 
       public function guardar(request $request){ 
