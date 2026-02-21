@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Cliente; //include_once "app/Entidades/Sistema/Cliente.php";
+use App\Entidades\Pedido;
 use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php'; //La busca desde la raiz del proyecto require app_path(), desde el directorio de App
@@ -28,11 +29,22 @@ class ControladorCliente extends Controller {
     }
 
     public function eliminar(Request $request){
-      print_r($request->input("id"));
-      exit;
-      $cliente = new Cliente();
-      $cliente->idcliente = $request->input("id");
-      $cliente->eliminar();
+      $idCliente = $request->input("id");
+      // Si esta asociado un cliente con una fk, avisar
+      $pedido = new Pedido();
+      if($pedido->existePedidoAsociado($idCliente)){
+            $resultado["err"] = EXIT_FAILURE;
+            $resultado["mensaje"] = "No se puede eliminar un cliente asociado con un pedido.";
+
+      // Sino
+      } else {
+            $cliente = new Cliente();
+            $cliente->idcliente = $idCliente;
+            $cliente->eliminar();
+            $resultado["err"] = EXIT_SUCCESS;
+            $resultado["mensaje"] = "Registro eliminado exitosamente.";
+      }
+      return json_encode($resultado);
     }
 
     public function cargarGrilla()

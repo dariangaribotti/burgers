@@ -93,5 +93,23 @@ if (isset($msg)) {
                 return false;
             }
         }
+
+         function eliminar() {
+        $.ajax({
+            type: "GET",
+            url: "{{ asset('admin/cliente/eliminar') }}",
+            data: { id:globalId },
+            async: true,
+            dataType: "json",
+            success: function (data) {
+                if (data.err == 0) {
+                    msgShow(data.mensaje, "success");
+                } else {
+                    msgShow(data.mensaje, "danger");
+                }
+                $('#mdlEliminar').modal('toggle');
+            }
+        });
+    }
     </script>
 @endsection

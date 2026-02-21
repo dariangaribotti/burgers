@@ -140,6 +140,7 @@ class Cliente extends Model {
 
         return $lstRetorno;
     }
+
 }
 
 ?>

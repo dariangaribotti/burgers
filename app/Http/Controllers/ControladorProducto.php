@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Producto; //include_once "app/Entidades/Sistema/Menu.php";
 use App\Entidades\Categoria;
+use App\Entidades\Cliente;
 use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php';
@@ -33,6 +34,23 @@ class ControladorProducto extends Controller {
         $aCategorias = $categoria->obtenerTodos();
         
         return view('sistema.producto-nuevo', compact('titulo', 'producto', 'aCategorias'));
+    }
+    
+    public function eliminar(Request $request){
+        $idProducto = $request->input("id");
+        $cliente = new Cliente();
+        //no
+        if($cliente->existePedidoAsociado()){
+            $resultado["err"] = "danger";
+            $resultado["mensaje"] = "No se puede eliminar un producto asociado a un cliente";
+        //si
+        } else {
+            $producto = new Producto();
+            $producto->idproducto = $idProducto;
+            $resultado["err"] = "success";
+            $resultado["mensaje"] = "Registro eliminado exitosamente";
+        }
+        return $resultado;
     }
 
     public function cargarGrilla(){
