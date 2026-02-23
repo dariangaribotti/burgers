@@ -138,7 +138,7 @@ class Pedido extends Model {
         return $lstRetorno;
     }
 
-    public function existePedidoAsociado($idCliente)
+    public function existePedidoAsociado($id)
     {
         $sql = "SELECT
                 idpedido,
@@ -148,7 +148,23 @@ class Pedido extends Model {
                 fk_idsucursal,
                 fk_idcliente,
                 fk_idestado
-            FROM pedidos WHERE fk_idcliente = $idCliente";
+            FROM pedidos WHERE fk_idcliente = $id";
+        $lstRetorno = DB::select($sql);
+
+        return (count($lstRetorno) > 0);
+    }
+
+    public function existeSucursalAsociado($id)
+    {
+        $sql = "SELECT
+                idpedido,
+                fecha,
+                descripcion,
+                total,
+                fk_idsucursal,
+                fk_idcliente,
+                fk_idestado
+            FROM pedidos WHERE fk_idsucursal = $id";
         $lstRetorno = DB::select($sql);
 
         return (count($lstRetorno) > 0);

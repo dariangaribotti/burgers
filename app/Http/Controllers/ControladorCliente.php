@@ -29,17 +29,17 @@ class ControladorCliente extends Controller {
     }
 
     public function eliminar(Request $request){
-      $idCliente = $request->input("id");
+      $id = $request->input("id");
       // Si esta asociado un cliente con una fk, avisar
       $pedido = new Pedido();
-      if($pedido->existePedidoAsociado($idCliente)){
+      if($pedido->existePedidoAsociado($id)){
             $resultado["err"] = EXIT_FAILURE;
             $resultado["mensaje"] = "No se puede eliminar un cliente asociado con un pedido.";
 
       // Sino
       } else {
             $cliente = new Cliente();
-            $cliente->idcliente = $idCliente;
+            $cliente->idcliente = $id;
             $cliente->eliminar();
             $resultado["err"] = EXIT_SUCCESS;
             $resultado["mensaje"] = "Registro eliminado exitosamente.";

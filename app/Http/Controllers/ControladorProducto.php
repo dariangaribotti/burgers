@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Producto; //include_once "app/Entidades/Sistema/Menu.php";
+use App\Entidades\Pedido;
 use App\Entidades\Categoria;
 use App\Entidades\Cliente;
 use Illuminate\Http\Request;
@@ -38,19 +39,15 @@ class ControladorProducto extends Controller {
     
     public function eliminar(Request $request){
         $idProducto = $request->input("id");
-        $cliente = new Cliente();
-        //no
-        if($cliente->existePedidoAsociado()){
-            $resultado["err"] = "danger";
-            $resultado["mensaje"] = "No se puede eliminar un producto asociado a un cliente";
-        //si
-        } else {
-            $producto = new Producto();
-            $producto->idproducto = $idProducto;
-            $resultado["err"] = "success";
-            $resultado["mensaje"] = "Registro eliminado exitosamente";
-        }
-        return $resultado;
+
+        $producto = new Producto();
+        $producto->idproducto = $idProducto;
+        $producto->eliminar();
+
+        $resultado["err"] = EXIT_SUCCESS;
+        $resultado["mensaje"] = "Registro eliminado exitosamente";
+        
+        return json_encode($resultado);
     }
 
     public function cargarGrilla(){

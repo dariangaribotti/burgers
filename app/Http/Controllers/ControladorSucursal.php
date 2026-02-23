@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Sucursal;
+use App\Entidades\Pedido;
 use App\Entidades\Categoria;
 use Illuminate\Http\Request;
 
@@ -30,6 +31,25 @@ class ControladorSucursal extends Controller{
         $categoria = new Categoria();
         $categoria->obtenerPorId($id);
         return view('sistema.sucursal-nuevo', compact('titulo', 'sucursal', 'categoria'));
+    }
+
+    public function eliminar(Request $request){
+      $id = $request->input("id");
+      // Si esta asociado un cliente con una fk, avisar
+      $pedido = new Pedido();
+      if($pedido->existeSucursalAsociado($id)){
+            $resultado["err"] = EXIT_FAILURE;
+            $resultado["mensaje"] = "No se puede eliminar un cliente asociado con un pedido.";
+
+      // Sino
+      } else {
+            $sucursal = new Sucursal();
+            $sucursal->idsucursal = $id;
+            $sucursal->eliminar();
+            $resultado["err"] = EXIT_SUCCESS;
+            $resultado["mensaje"] = "Registro eliminado exitosamente.";
+      }
+      return json_encode($resultado);
     }
 
     public function guardar(request $request){
