@@ -13,7 +13,7 @@
     <li class="breadcrumb-item active">Modificar</li>
 </ol>
 <ol class="toolbar">
-    <li class="btn-item"><a title="Nuevo" href="/admin/sistema/categoria/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
+    <li class="btn-item"><a title="Nuevo" href="/admin/categoria/nuevo" class="fa fa-plus-circle" aria-hidden="true"><span>Nuevo</span></a></li>
     <li class="btn-item"><a title="Guardar" href="#" class="fa fa-floppy-o" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     @if($globalId > 0)
@@ -59,7 +59,7 @@ if (isset($msg)) {
             }
         }
 
-        function eliminar(){
+        function eliminar() {
         $.ajax({
             type: "GET",
             url: "{{ asset('admin/categoria/eliminar') }}",
@@ -69,10 +69,12 @@ if (isset($msg)) {
             success: function (data) {
                 if (data.err == 0) {
                     msgShow(data.mensaje, "success");
+                } else {
+                    msgShow(data.mensaje, "danger");
                 }
                 $('#mdlEliminar').modal('toggle');
             }
         });
-      }
+    }
     </script>
     @endsection

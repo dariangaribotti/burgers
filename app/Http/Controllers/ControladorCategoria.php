@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Categoria; //include_once "app/Entidades/Sistema/Menu.php";
+use App\Entidades\Producto;
 use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php';
@@ -30,19 +31,24 @@ class ControladorCategoria extends Controller
             return view('sistema.categoria-nuevo', compact('titulo', 'categoria'));
       }
 
-      public function eliminar(Request $request)
-      {
-            $idCategoria = $request->input("id");
+      public function eliminar(Request $request){
+      $id = $request->input("id");
+      // Si esta asociado un cliente con una fk, avisar
+      $producto = new Producto();
+      if($producto->existeProductoAsociado($id)){
+            $resultado["err"] = EXIT_FAILURE;
+            $resultado["mensaje"] = "No se puede eliminar un cliente asociado con un pedido.";
 
+      // Sino
+      } else {
             $categoria = new Categoria();
-            $categoria->idcategoria = $idCategoria;
+            $categoria->idcategoria = $id;
             $categoria->eliminar();
-
             $resultado["err"] = EXIT_SUCCESS;
-            $resultado["mensaje"] = "Registro eliminado exitosamente";
-
-            return json_encode($resultado);
+            $resultado["mensaje"] = "Registro eliminado exitosamente.";
       }
+      return json_encode($resultado);
+    }
 
       public function guardar(Request $request)
       {

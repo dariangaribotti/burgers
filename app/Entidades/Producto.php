@@ -62,6 +62,21 @@ class Producto extends Model {
         $affected = DB::delete($sql, [$this->idproducto]);
     }
 
+    public function existeProductoAsociado($id)
+    {
+        $sql = "SELECT
+                idproducto,
+                nombre,
+                cantidad,
+                precio,
+                imagen,
+                fk_idcategoria
+            FROM productos WHERE fk_idcategoria = $id";
+        $lstRetorno = DB::select($sql);
+
+        return (count($lstRetorno) > 0);
+    }
+
     public function obtenerTodos()
     {
         $sql = "SELECT
