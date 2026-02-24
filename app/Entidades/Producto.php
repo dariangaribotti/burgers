@@ -1,17 +1,23 @@
-<?php 
+<?php
 
 namespace App\Entidades;
 
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
-class Producto extends Model {
-      
+class Producto extends Model
+{
+
     protected $table = 'productos';
     public $timestamps = false;
 
     protected $fillable = [
-        'idproducto', 'nombre', 'cantidad', 'precio', 'imagen', 'fk_idcategoria'
+        'idproducto',
+        'nombre',
+        'cantidad',
+        'precio',
+        'imagen',
+        'fk_idcategoria'
     ];
 
     public function cargarDesdeRequest($request)
@@ -124,14 +130,16 @@ class Producto extends Model {
             2 => 'precio',
         );
         $sql = "SELECT DISTINCT
-                    idproducto,
-                    nombre,
-                    cantidad,
-                    precio,
-                    imagen,
-                    fk_idcategoria
-                    FROM productos
-                WHERE 1=1
+                    A.idproducto,
+                    A.nombre,
+                    A.cantidad,
+                    A.precio,
+                    A.imagen,
+                    A.fk_idcategoria,
+                    B.Nombre as categoria
+                    FROM productos A
+                    INNER JOIN categorias B ON A.fk_idcategoria = B.idcategoria
+                    WHERE 1=1
                 ";
 
         //Realiza el filtrado
@@ -147,5 +155,3 @@ class Producto extends Model {
         return $lstRetorno;
     }
 }
-
-?>
