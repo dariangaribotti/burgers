@@ -35,7 +35,7 @@ class ControladorSucursal extends Controller{
 
     public function eliminar(Request $request){
       $id = $request->input("id");
-      // Si esta asociado un cliente con una fk, avisar
+      // Si esta asociado un cliente con un pedido, avisar
       $pedido = new Pedido();
       if($pedido->existeSucursalAsociado($id)){
             $resultado["err"] = EXIT_FAILURE;
