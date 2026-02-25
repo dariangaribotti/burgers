@@ -67,7 +67,7 @@ class ControladorProducto extends Controller {
             $row = array();
             $row[] = '<a href="/admin/producto/' . $aProducto[$i]->idproducto . '">' . $aProducto[$i]->nombre . '</a>';
             $row[] = $aProducto[$i]->cantidad;
-            $row[] = $aProducto[$i]->precio;
+            $row[] = number_format($aProducto[$i]->precio, 2, );
             $row[] = $aProducto[$i]->imagen;
             $row[] = $aProducto[$i]->categoria;
             $cont++;

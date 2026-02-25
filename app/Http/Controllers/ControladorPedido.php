@@ -129,12 +129,12 @@ class ControladorPedido extends Controller
 
             for ($i = $inicio; $i < count($aPedidos) && $cont < $registros_por_pagina; $i++) {
                   $row = array();
-                  $row[] = '<a href="/admin/pedido/' . $aPedidos[$i]->idpedido . '">' . $aPedidos[$i]->fk_idcliente . '</a>';
+                  $row[] = '<a href="/admin/pedido/' . $aPedidos[$i]->idpedido . '">' . $aPedidos[$i]->cliente . '</a>';
                   $row[] = $aPedidos[$i]->descripcion;
                   $row[] = $aPedidos[$i]->total;
                   $row[] = $aPedidos[$i]->fecha;
-                  $row[] = $aPedidos[$i]->fk_idsucursal;
-                  $row[] = $aPedidos[$i]->fk_idestado;
+                  $row[] = $aPedidos[$i]->sucursal;
+                  $row[] = $aPedidos[$i]->estado;
                   $cont++;
                   $data[] = $row;
             }
