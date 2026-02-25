@@ -131,7 +131,7 @@ class ControladorPedido extends Controller
                   $row = array();
                   $row[] = '<a href="/admin/pedido/' . $aPedidos[$i]->idpedido . '">' . $aPedidos[$i]->cliente . '</a>';
                   $row[] = $aPedidos[$i]->descripcion;
-                  $row[] = $aPedidos[$i]->total;
+                  $row[] = number_format($aPedidos[$i]->total, 2, ',', '.');
                   $row[] = $aPedidos[$i]->fecha;
                   $row[] = $aPedidos[$i]->sucursal;
                   $row[] = $aPedidos[$i]->estado;
