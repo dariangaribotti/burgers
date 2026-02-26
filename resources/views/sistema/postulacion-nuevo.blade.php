@@ -86,7 +86,7 @@ if (isset($msg)) {
             }
         }
 
-        function eliminar(){
+       function eliminar() {
         $.ajax({
             type: "GET",
             url: "{{ asset('admin/postulacion/eliminar') }}",
@@ -96,10 +96,12 @@ if (isset($msg)) {
             success: function (data) {
                 if (data.err == 0) {
                     msgShow(data.mensaje, "success");
+                } else {
+                    msgShow(data.mensaje, "danger");
                 }
                 $('#mdlEliminar').modal('toggle');
             }
         });
-      }
+    }
     </script>
     @endsection

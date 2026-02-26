@@ -44,7 +44,8 @@ if (isset($msg)) {
                 <select name="lstSucursal" id="lstSucursal" class="form-control">
                   <option value="">Seleccionado</option>
                         @foreach($aSucursales as $sucursal)
-                        <option value="{{ $sucursal->idsucursal }}">{{ $sucursal->nombre }}</option>
+                        <option value="{{ $sucursal->idsucursal }}"
+                        @if(isset($sucursal->idsucursal) && $sucursal->idsucursal == $pedido->fk_idsucursal) selected @endif>{{ $sucursal->nombre }}</option>
                         @endforeach
                 </select>
             </div>
@@ -55,7 +56,8 @@ if (isset($msg)) {
                 <select name="lstCliente" id="lstCliente" class="form-control">
                   <option value="">Seleccionado</option>
                   @foreach($aClientes as $cliente)
-                    <option value="{{ $cliente->idcliente }}">{{ $cliente->nombre }}</option>
+                    <option value="{{ $cliente->idcliente }}" 
+                    @if(isset($cliente->idcliente) && $cliente->idcliente == $pedido->fk_idcliente) selected @endif >{{ $cliente->nombre }}</option>
                   @endforeach
                 </select>
             </div>
@@ -68,7 +70,8 @@ if (isset($msg)) {
                 <select name="lstEstado" id="lstEstado" class="form-control">
                   <option value="">Seleccionado</option>
                     @foreach($aEstados as $estado)
-                        <option value="{{ $estado->idestado }}">{{ $estado->nombre }}</option>
+                        <option value="{{ $estado->idestado }}" 
+                        @if(isset($estado->idestado) && $estado->idestado == $pedido->fk_idestado) selected @endif >{{ $estado->nombre }}</option>
                     @endforeach
                 </select>
             </div>
@@ -108,7 +111,7 @@ if (isset($msg)) {
             }
         }
 
-        function eliminar(){
+        function eliminar() {
         $.ajax({
             type: "GET",
             url: "{{ asset('admin/pedido/eliminar') }}",
@@ -118,10 +121,12 @@ if (isset($msg)) {
             success: function (data) {
                 if (data.err == 0) {
                     msgShow(data.mensaje, "success");
+                } else {
+                    msgShow(data.mensaje, "danger");
                 }
                 $('#mdlEliminar').modal('toggle');
             }
         });
-      }
+    }
     </script>
     @endsection

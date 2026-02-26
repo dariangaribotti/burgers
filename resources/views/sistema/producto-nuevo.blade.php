@@ -74,7 +74,8 @@ if (isset($msg)) {
                 <select class="form-control" name="lstCategoria" id="lstCategoria">
                   <option value="">Seleccionado</option>
                     @foreach($aCategorias as $categoria)
-                        <option value="{{ $categoria->idcategoria }}">{{ $categoria->nombre }}</option>
+                        <option value="{{ $categoria->idcategoria }}"
+                              @if(isset($producto->fk_idcategoria) && $producto->fk_idcategoria == $categoria->idcategoria) selected @endif>{{ $categoria->nombre }}</option>
                     @endforeach
                 </select>
             </div>
@@ -99,15 +100,17 @@ if (isset($msg)) {
             type: "GET",
             url: "{{ asset('admin/producto/eliminar') }}",
             data: { id:globalId },
-            async: true,     
+            async: true,
             dataType: "json",
             success: function (data) {
                 if (data.err == 0) {
                     msgShow(data.mensaje, "success");
+                } else {
+                    msgShow(data.mensaje, "danger");
                 }
                 $('#mdlEliminar').modal('toggle');
             }
         });
-      }
+    }
     </script>
 @endsection

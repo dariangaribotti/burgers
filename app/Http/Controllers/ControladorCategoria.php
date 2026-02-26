@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Categoria; //include_once "app/Entidades/Sistema/Menu.php";
 use App\Entidades\Producto;
+use App\Entidades\Sistema\Usuario;
+use App\Entidades\Sistema\Patente;
 use Illuminate\Http\Request;
 
 require app_path() . '/start/constants.php';
@@ -25,30 +27,38 @@ class ControladorCategoria extends Controller
 
       public function editar($id)
       {
-            $titulo = "Editar";
+            $titulo = "Editar categoria";
             $categoria = new Categoria();
             $categoria->obtenerPorId($id);
             return view('sistema.categoria-nuevo', compact('titulo', 'categoria'));
       }
 
-      public function eliminar(Request $request){
-      $id = $request->input("id");
-      // Si esta asociado un cliente con una fk, avisar
-      $producto = new Producto();
-      if($producto->existeProductoAsociado($id)){
-            $resultado["err"] = EXIT_FAILURE;
-            $resultado["mensaje"] = "No se puede eliminar un cliente asociado con un pedido.";
-
-      // Sino
-      } else {
-            $categoria = new Categoria();
-            $categoria->idcategoria = $id;
-            $categoria->eliminar();
-            $resultado["err"] = EXIT_SUCCESS;
-            $resultado["mensaje"] = "Registro eliminado exitosamente.";
+      public function eliminar(Request $request)
+      {
+            if (Usuario::autenticado() == true) {
+                  if (!Patente::autorizarOperacion("CATEGORIAELIMINAR")) {
+                        $resultado["err"] = EXIT_FAILURE;
+                        $resultado["mensaje"] = "No tiene permisos para la operación.";
+                  } else {
+                        $id = $request->input("id");
+                        $producto = new Producto();
+                        if ($producto->existeProductoAsociado($id)) {
+                              $resultado["err"] = EXIT_FAILURE;
+                              $resultado["mensaje"] = "No se puede eliminar un cliente asociado con un pedido.";
+                        } else {
+                              $categoria = new Categoria();
+                              $categoria->idcategoria = $id;
+                              $categoria->eliminar();
+                              $resultado["err"] = EXIT_SUCCESS;
+                              $resultado["mensaje"] = "Registro eliminado exitosamente.";
+                        }
+                  }
+            } else {
+                  $resultado["err"] = EXIT_FAILURE;
+                  $resultado["mensaje"] = "Usuario no autenticado.";
+            }
+            return json_encode($resultado);
       }
-      return json_encode($resultado);
-    }
 
       public function guardar(Request $request)
       {
