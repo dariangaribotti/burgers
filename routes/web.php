@@ -19,9 +19,10 @@ Route::group(array('domain' => '127.0.0.1'), function () {
 /* WEB ECOMMERCE                                  */
 /* --------------------------------------------- */
     Route::get('/', 'ControladorWebHome@index');
+    Route::get('/takeaway', 'ControladorWebTakeaway@index');
+    Route::get('/nosotros', 'ControladorWebNosotros@index');
+    Route::get('/contacto', 'ControladorWebContacto@index');
  
-
-
 
 /* --------------------------------------------- */
 /* CONTROLADOR LOGIN                             */

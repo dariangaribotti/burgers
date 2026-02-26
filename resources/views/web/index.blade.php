@@ -56,16 +56,16 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
               <li class="nav-item active">
-                <a class="nav-link" href="index.blade.php">Home <span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="menu.blade.php">Menu</a>
+                <a class="nav-link" href="/takeaway">Menu</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="about.blade.php">About</a>
+                <a class="nav-link" href="/nosotros">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="book.blade.php">Book Table</a>
+                <a class="nav-link" href="/contacto">Book Table</a>
               </li>
             </ul>
             <div class="user_option">
