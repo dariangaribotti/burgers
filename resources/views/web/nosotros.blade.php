@@ -35,7 +35,7 @@
 
   <section class="client_section layout_padding-bottom">
     <div class="container">
-      <div class="heading_container heading_center psudo_white_primary mb_45">
+      <div class="heading_container heading_center psudo_white_primary pb-3 pt-5">
         <h2>
           What Says Our Customers
         </h2>
@@ -82,6 +82,61 @@
       </div>
     </div>
   </section>
-
   <!-- end client section -->
+   
+  <!-- start form postulation -->
+<section class="book_section layout_padding pt-4">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          Postulación
+        </h2>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <div class="form_container">
+            <form action="">
+              <div>
+                <input type="text" class="form-control" placeholder="Your Name" />
+              </div>
+              <div>
+                <input type="text" class="form-control" placeholder="Phone Number" />
+              </div>
+              <div>
+                <input type="email" class="form-control" placeholder="Your Email" />
+              </div>
+              <div>
+                <select class="form-control nice-select wide">
+                  <option value="" disabled selected>
+                    How many persons?
+                  </option>
+                  <option value="">
+                    2
+                  </option>
+                  <option value="">
+                    3
+                  </option>
+                  <option value="">
+                    4
+                  </option>
+                  <option value="">
+                    5
+                  </option>
+                </select>
+              </div>
+              <div>
+                <input type="date" class="form-control">
+              </div>
+              <div class="btn_box d-flex justify-content-center">
+                <button>
+                  POSTULARSE
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- end form postulation -->
 @endsection

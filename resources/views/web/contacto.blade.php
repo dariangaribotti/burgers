@@ -4,7 +4,7 @@
     <div class="container">
       <div class="heading_container">
         <h2>
-          Book A Table
+          Contactarse
         </h2>
       </div>
       <div class="row">
@@ -44,7 +44,7 @@
               </div>
               <div class="btn_box">
                 <button>
-                  Book Now
+                  ENVIAR
                 </button>
               </div>
             </form>
