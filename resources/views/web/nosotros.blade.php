@@ -128,7 +128,7 @@
                 <input type="date" class="form-control">
               </div>
               <div class="btn_box d-flex justify-content-center">
-                <button>
+                <button type="submit" formaction="/postulacion-gracias">
                   POSTULARSE
                 </button>
               </div>
