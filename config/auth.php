@@ -70,7 +70,7 @@ return [
 //            'model' => App\User::class,
 //        ],
         'users' => [
-                'driver' => 'adldap', // Changed from 'eloquent'
+                'driver' => 'eloquent', // Changed from 'eloquent'
                 'model' => App\User::class,
             ],
         // 'users' => [
