@@ -43,9 +43,9 @@
                 <input type="date" class="form-control">
               </div>
               <div class="btn_box">
-                <button>
+                <button name="btnEnviar" id="btnEnviar">
                   ENVIAR
-                </button>
+                <d/button>
               </div>
             </form>
           </div>
