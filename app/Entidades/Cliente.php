@@ -1,20 +1,28 @@
-<?php 
+<?php
 
 namespace App\Entidades; //Evitamos choques de nombre, el namespace los diferencia.
 
 use DB; //Importa la fachada de base de datos
 use Illuminate\Database\Eloquent\Model; //Son atajos para no escribir el código completo.
 
-class Cliente extends Model {
+class Cliente extends Model
+{
 
     protected $table = 'clientes';
     public $timestamps = false;
 
     protected $fillable = [ //Protege la base datos de cualquier inyección.
-    'idcliente', 'nombre', 'apellido', 'correo', 'dni', 'celular', 'clave'
+        'idcliente',
+        'nombre',
+        'apellido',
+        'correo',
+        'dni',
+        'celular',
+        'clave'
     ];
 
-    public function cargarDesdeRequest($request) {
+    public function cargarDesdeRequest($request)
+    {
         $this->idcliente = $request->input('id') != "0" ? $request->input('id') : $this->idcliente; //
         $this->nombre = $request->input('txtNombre');
         $this->apellido = $request->input('txtApellido');
@@ -44,7 +52,7 @@ class Cliente extends Model {
         ]);
         return $this->idmenu = DB::getPdo()->lastInsertId();
     }
-    
+
     public function guardar()
     {
         $sql = "UPDATE clientes SET
@@ -141,6 +149,27 @@ class Cliente extends Model {
         return $lstRetorno;
     }
 
-}
+    public function obtenerPorCliente()
+    {
+        $request = $_REQUEST;
+        $columns = array(
+            0 => 'correo',
+            1 => 'clave',
+        );
+        $sql = "SELECT DISTINCT
+                    idcliente,
+                    nombre,
+                    apellido,
+                    correo,
+                    dni,
+                    celular,
+                    clave
+                    FROM clientes
+                WHERE 1=1
+                ";
 
-?>
+        $lstRetorno = DB::select($sql);
+
+        return $lstRetorno;
+    }
+}

@@ -11,8 +11,9 @@
             <div class="col-md-6">
                 <div class="form_container justify-content-center">
                     <form action="" method="post">
+                        @csrf
                         <div>
-                            <input type="text" class="form-control" placeholder="Usuario" />
+                            <input type="email" class="form-control" placeholder="Correo" />
                         </div>
                         <div>
                             <input type="password" class="form-control" placeholder="Contraseña" />

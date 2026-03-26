@@ -10,14 +10,14 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      Comida rapida
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      Disfruta del auténtico sabor de nuestras hamburguesas artesanales, preparadas con ingredientes frescos y carne de la mejor calidad. Una experiencia única en cada bocado que te hará volver por más. ¡Haz tu pedido ahora!
                     </p>
                     <div class="btn-box">
                       <a href="" class="btn1">
-                        Order Now
+                        Ordenar ahora
                       </a>
                     </div>
                   </div>
@@ -31,14 +31,13 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      Comida rapida
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
-                    </p>
+                      Disfruta del auténtico sabor de nuestras hamburguesas artesanales, preparadas con ingredientes frescos y carne de la mejor calidad. Una experiencia única en cada bocado que te hará volver por más. ¡Haz tu pedido ahora!
                     <div class="btn-box">
                       <a href="" class="btn1">
-                        Order Now
+                        Ordenar ahora
                       </a>
                     </div>
                   </div>
@@ -52,14 +51,14 @@
                 <div class="col-md-7 col-lg-6 ">
                   <div class="detail-box">
                     <h1>
-                      Fast Food Restaurant
+                      Comida rapida
                     </h1>
                     <p>
-                      Doloremque, itaque aperiam facilis rerum, commodi, temporibus sapiente ad mollitia laborum quam quisquam esse error unde. Tempora ex doloremque, labore, sunt repellat dolore, iste magni quos nihil ducimus libero ipsam.
+                      Disfruta del auténtico sabor de nuestras hamburguesas artesanales, preparadas con ingredientes frescos y carne de la mejor calidad. Una experiencia única en cada bocado que te hará volver por más. ¡Haz tu pedido ahora!
                     </p>
                     <div class="btn-box">
                       <a href="" class="btn1">
-                        Order Now
+                        Ordenar ahora
                       </a>
                     </div>
                   </div>
@@ -92,13 +91,13 @@
               </div>
               <div class="detail-box">
                 <h5>
-                  Tasty Thursdays
+                  Jueves tasty
                 </h5>
                 <h6>
                   <span>20%</span> Off
                 </h6>
                 <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                  Ordena ahora <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                     <g>
                       <g>
                         <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248
@@ -161,13 +160,13 @@
               </div>
               <div class="detail-box">
                 <h5>
-                  Pizza Days
+                  Dias de pizza
                 </h5>
                 <h6>
                   <span>15%</span> Off
                 </h6>
                 <a href="">
-                  Order Now <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
+                  Ordena ahora <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                     <g>
                       <g>
                         <path d="M345.6,338.862c-29.184,0-53.248,23.552-53.248,53.248c0,29.184,23.552,53.248,53.248,53.248

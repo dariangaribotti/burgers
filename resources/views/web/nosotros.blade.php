@@ -13,17 +13,14 @@
           <div class="detail-box">
             <div class="heading_container">
               <h2>
-                We Are Feane
+                Nosotros somos feane
               </h2>
             </div>
             <p>
-              There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration
-              in some form, by injected humour, or randomised words which don't look even slightly believable. If you
-              are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in
-              the middle of text. All
+              En Burgers, creemos que cada bocado debe ser una experiencia única. Utilizamos ingredientes frescos, carne de primera calidad y nuestras propias salsas secretas para asegurar el mejor sabor. Nuestra pasión por la parrilla nació en Buenos Aires y creció hasta formar una comunidad para amantes del sabor real. Vení a probar nuestra receta hoy mismo.
             </p>
             <a href="">
-              Read More
+              Leer más
             </a>
           </div>
         </div>
@@ -37,7 +34,7 @@
     <div class="container">
       <div class="heading_container heading_center psudo_white_primary pb-3 pt-5">
         <h2>
-          What Says Our Customers
+          Lo que dicen nuestros clientes
         </h2>
       </div>
       <div class="carousel-wrap row ">

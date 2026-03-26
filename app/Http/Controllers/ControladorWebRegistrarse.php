@@ -8,6 +8,8 @@ use App\Entidades\Sistema\Usuario;
 use Session;
 use Illuminate\Http\Request;
 
+require app_path() . '/start/constants.php';
+
 class ControladorWebRegistrarse extends Controller
 {
     public function index()
@@ -16,12 +18,20 @@ class ControladorWebRegistrarse extends Controller
     }
 
     public function registrarse(Request $request)
-    {
+    {  
     $cliente = new Cliente();
-    $cliente->nombre = $request->input("txtNombre");
+    $cliente->correo = $request->input("txtEmail");
     $cliente->clave = $request->input("txtClave");
-    $cliente->insertar();
-    return redirect("/login");
+
+    if(filled($cliente->correo) && filled($cliente->clave)){
+        $cliente->insertar();
+        $msg["MSG"] = "Se ha registrado correctamente.";
+        $msg["ESTADO"] = "success";
+    } else {
+        $msg["MSG"] = "Complete todos los datos.";
+        $msg["ESTADO"] = "danger";
+    }
+    return view("web.registrarse", compact("msg"));
     /*
     1. metodo registrarse
     2. instanciar la clase cliente

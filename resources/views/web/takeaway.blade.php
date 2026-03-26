@@ -4,16 +4,16 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Our Menu
+          Nuestro menu
         </h2>
       </div>
 
       <ul class="filters_menu">
-        <li class="active" data-filter="*">All</li>
-        <li data-filter=".burger">Burger</li>
+        <li class="active" data-filter="*">Todo</li>
+        <li data-filter=".burger">Hamburguesa</li>
         <li data-filter=".pizza">Pizza</li>
         <li data-filter=".pasta">Pasta</li>
-        <li data-filter=".fries">Fries</li>
+        <li data-filter=".fries">Papas</li>
       </ul>
 
       <div class="filters-content">
@@ -26,7 +26,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    Pizza deliciosa
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -102,7 +102,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Burger
+                    Deliciosa hamburguesa
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -178,7 +178,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    Pizza deliciosa
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -254,7 +254,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pasta
+                    Deliciosa pasta
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -330,7 +330,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    French Fries
+                    Papas fritas
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -406,7 +406,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pizza
+                    Pizza deliciosa
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -482,7 +482,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Tasty Burger
+                    Hamburguesa tasty
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -558,7 +558,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Tasty Burger
+                    Hamburguesa tasty
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -634,7 +634,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Delicious Pasta
+                    Pasta deliciosa
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -706,7 +706,7 @@
       </div>
       <div class="btn-box">
         <a href="">
-          View More
+          Ver mas
         </a>
       </div>
     </div>
