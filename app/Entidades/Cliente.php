@@ -151,18 +151,8 @@ class Cliente extends Model
 
     public function obtenerPorCliente()
     {
-        $request = $_REQUEST;
-        $columns = array(
-            0 => 'correo',
-            1 => 'clave',
-        );
         $sql = "SELECT DISTINCT
-                    idcliente,
-                    nombre,
-                    apellido,
                     correo,
-                    dni,
-                    celular,
                     clave
                     FROM clientes
                 WHERE 1=1
