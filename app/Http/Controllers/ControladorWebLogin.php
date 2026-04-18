@@ -17,31 +17,43 @@ class ControladorWebLogin extends Controller
 
     public function ingresar(Request $request)
     {
-        $CorreoIngresado = fescape_string($request->input('txtEmail'));
-        $claveIngresada = fescape_string($request->input('txtClave'));
+        // 1. Capturar los datos del formulario
+        $CorreoIngresado = $request->input('txtEmail');
+        $claveIngresada = $request->input('txtClave');
 
+        // 2. Instanciar la clase Cliente
         $cliente = new Cliente();
         
-        $cliente->obtenerPorCliente();
-      
-        /*
-        1. __Capturar los datos del formulario: Obtener el correo y la clave ingresados usando $request->input(...).
-        
-        2. __Instanciar la clase Cliente: Crear un nuevo objeto Cliente ($cliente = new Cliente();).
-        
-        3. Buscar al cliente en la base de datos: Vas a necesitar tener o crear un método en la entidad Cliente (ej: obtenerPorCorreo($correo)) que busque si ese mail existe y te devuelva un array con los datos ($lstCliente).
-        
-        4. Validar si el cliente existe: Hacer un if (count($lstCliente) > 0). 
-           - Si NO existe, armar el array $msg con estado "danger" y texto "Correo incorrecto", y retornar la vista web.login.
-           
-        5. Validar la clave: Si el cliente existe, hacer otro if adentro comparando la clave ingresada con la clave encriptada de la base de datos (usando un método como validarClave() igual que hace el Usuario).
-           - Si la clave está MAL, armar el array $msg con "Contraseña incorrecta" y retornar la vista.
-           
-        6. Iniciar Sesión (¡El paso más importante!): Si la clave está BIEN, guardar en la Session los datos. 
-           ¡OJO! Usá nombres distintos al admin. 
-           Ejemplo: Session::put('cliente_id', $lstCliente[0]->idcliente);
-           
-        7. Redirigir: Usar return redirect('/mi-cuenta'); para mandarlo a su panel si todo salió perfecto.
-        */
+        // 3. Buscar al cliente en la base de datos 
+        // (Asegurate de crear este método en tu entidad Cliente si no existe)
+        $lstCliente = $cliente->obtenerPorCorreo($CorreoIngresado);
+
+        // 4. Validar si el cliente existe (Si el conteo es 0, NO existe)
+        if($lstCliente == null){
+            $msg['ESTADO'] = "danger";
+            $msg['MSG'] = "Correo o contraseña incorrectos"; 
+            return view('web.login', compact('msg'));
+        }
+
+        // Si llegamos hasta acá, el correo existe. Guardamos los datos del cliente.
+        $clienteEncontrado = $lstCliente;
+
+        // 5. Validar la clave
+        // Usamos password_verify asumiendo que la guardaste con password_hash()
+        // Si no usás encriptación (no recomendado), cambiar a: if($claveIngresada == $clienteEncontrado->clave)
+        if (password_verify($claveIngresada, $clienteEncontrado->clave)) {
+            
+            // 6. Iniciar Sesión
+            Session::put('cliente_id', $clienteEncontrado->idcliente);
+            
+            // 7. Redirigir
+            return redirect()->route('mi.cuenta');
+            
+        } else {
+            // Si la clave está MAL
+            $msg['ESTADO'] = "danger";
+            $msg['MSG'] = "Correo o contraseña incorrectos";
+            return view('web.login', compact('msg'));
+        }
     }
 }

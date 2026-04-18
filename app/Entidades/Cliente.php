@@ -53,6 +53,18 @@ class Cliente extends Model
         return $this->idmenu = DB::getPdo()->lastInsertId();
     }
 
+    public function registrarse(){
+        $sql = "INSERT INTO clientes (
+                correo,
+                clave
+            ) VALUES (?, ?);";
+        $result = DB::insert($sql, [
+            $this->correo,
+            $this->clave
+        ]);
+        return $this->idmenu = DB::getPdo()->lastInsertId();
+    }
+
     public function guardar()
     {
         $sql = "UPDATE clientes SET
@@ -149,17 +161,23 @@ class Cliente extends Model
         return $lstRetorno;
     }
 
-    public function obtenerPorCliente()
+    public function obtenerPorCorreo($correo)
     {
-        $sql = "SELECT DISTINCT
-                    correo,
-                    clave
-                    FROM clientes
-                WHERE 1=1
-                ";
-
-        $lstRetorno = DB::select($sql);
-
-        return $lstRetorno;
+    $sql = "SELECT 
+            idcliente, 
+            correo, 
+            clave FROM clientes WHERE correo = ?";
+    $lstRetorno = DB::select($sql, [$correo]);
+    // Si hay resultados, devolvemos el primero (el objeto con los 3 datos)
+    return (count($lstRetorno) > 0) ? $lstRetorno[0] : null;
     }
+
+    public function actualizarClave()
+{
+    $sql = "UPDATE clientes SET clave = ? WHERE idcliente = ?";
+    $affected = DB::update($sql, [
+        $this->clave,
+        $this->idcliente
+    ]);
+}
 }

@@ -1,5 +1,17 @@
 @extends("web.plantilla")
+@section('scripts')
+<script>
+    globalId = '<?php echo isset($cliente->idcliente) && $cliente->idcliente > 0 ? $cliente->idcliente : 0; ?>';
+    <?php $globalId = isset($cliente->idcliente) ? $cliente->idcliente : "0"; ?>
+</script>
+@endsection
 @section("contenido")
+<?php
+if (isset($msg)) {
+    echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
+}
+?>
+<div id = "msg"></div>
 <section class="book_section pt-5">
     <div class="container">
         <div class="heading_container">
@@ -8,11 +20,6 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form_container justify-content-center">
-                    @isset($msg)
-                    <div class="alert alert-{{ $msg['ESTADO'] }} text-center" role="alert">
-                        {{ $msg['MSG'] }}
-                    </div>
-                    @endisset
                     <form action="/registrarse" method="POST">
                         @csrf
                         <div>

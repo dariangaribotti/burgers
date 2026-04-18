@@ -1,5 +1,12 @@
 @extends("web.plantilla")
 @section("contenido")
+
+<?php
+if (isset($msg)) {
+    echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
+}
+?>
+<div id = "msg"></div>
 <section class="book_section pt-5">
     <div class="container">
         <div class="heading_container">
@@ -10,7 +17,7 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="form_container justify-content-center">
-                    <form action="" method="post">
+                    <form action="/login" method="post">
                         @csrf
                         <div>
                             <input type="email" class="form-control" placeholder="Correo" />
