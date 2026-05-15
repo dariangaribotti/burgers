@@ -9,7 +9,8 @@ use Session;
 class ControladorWebTakeaway extends Controller
 {
     public function index()
-    {
-            return view("web.takeaway");
+    {   
+        $pg = "takeaway";
+        return view("web.takeaway", compact('pg'));
     }
 }

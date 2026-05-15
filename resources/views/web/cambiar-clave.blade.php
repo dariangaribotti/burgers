@@ -20,11 +20,8 @@ if (isset($msg)) {
         <div class="row">
             <div class="col-md-6">
                 <div class="form_container justify-content-center">
-                    <form action="/recuperar-clave" method="POST">
+                    <form action="/cambiar-clave" method="POST">
                         @csrf
-                        <div>
-                            <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Correo" required />
-                        </div>
                         <div>
                             <input type="password" name="txtClave" id="txtClave" class="form-control" placeholder="Contraseña" required />
                         </div>
@@ -33,7 +30,7 @@ if (isset($msg)) {
                         </div>
                         <div class="btn_box pb-5">
                             <div class="ps-5">
-                                <button type="submit" name="btnRecuperar" id="btnRecuperar" class="mr-4">RECUPERAR</button>
+                                <button type="submit" name="btnRecuperar" id="btnRecuperar" class="mr-4">CAMBIAR CLAVE</button>
                                 <button type="button" name="btnVolver" id="btnVolver" onclick="window.history.back();">VOLVER</button>
                             </div>
                         </div>

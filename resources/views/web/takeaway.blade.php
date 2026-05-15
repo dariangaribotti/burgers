@@ -26,7 +26,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Pizza deliciosa
+                    Pizza Especial
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -102,7 +102,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Deliciosa hamburguesa
+                    Hamburguesa Clásica
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -178,7 +178,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Pizza deliciosa
+                    Pizza Napolitana
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -254,7 +254,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Deliciosa pasta
+                    Fideos con Vegetales
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -330,7 +330,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Papas fritas
+                    Papas Fritas
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -406,7 +406,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Pizza deliciosa
+                    Pizza de la Casa
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -482,7 +482,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Hamburguesa tasty
+                    Hamburguesa de Pollo
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -558,7 +558,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Hamburguesa tasty
+                    Hamburguesa Simple
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque
@@ -634,7 +634,7 @@
                 </div>
                 <div class="detail-box">
                   <h5>
-                    Pasta deliciosa
+                    Pasta con Salsa
                   </h5>
                   <p>
                     Veniam debitis quaerat officiis quasi cupiditate quo, quisquam velit, magnam voluptatem repellendus sed eaque

@@ -37,38 +37,37 @@ if (isset($msg)) {
 ?>
 <div id = "msg"></div>
 <div class="panel-body">
-    <form id="form1" method="POST">
+    <form id="form1" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
+        <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
         <div class="row">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Nombre: *</label>
                 <input type="text" id="txtNombre" name="txtNombre" class="form-control" value="{{$producto->nombre}}" required>
             </div>
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Cantidad: *</label>
                 <input type="number" id="txtCantidad" name="txtCantidad" class="form-control" value="{{$producto->cantidad}}" required>
             </div>
         </div>
         <div class="row">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Precio: *</label>
                 <input type="number" id="txtPrecio" name="txtPrecio" class="form-control" value="{{$producto->precio}}" required>
             </div>
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Imagen: </label>
-                <input type="file" id="fileImagen" name="fileImagen" class="form-control" value="{{$producto->imagen}}">
+                @if(isset($producto->imagen) && $producto->imagen != "")
+                    <div class="mb-2">
+                        <img src="{{ asset('files/' . $producto->imagen) }}" alt="Imagen del producto" class="img-thumbnail" style="max-width: 150px;">
+                        <p><small>Imagen actual</small></p>
+                    </div>
+                @endif
+                <input type="file" id="fileImagen" name="fileImagen" class="form-control">
+                <small class="d-block">Archivos admitidos: .jpg .jpeg, .png</small>
             </div>
         </div>
         <div class="row">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Categoría: *</label>
                 <select class="form-control" name="lstCategoria" id="lstCategoria">

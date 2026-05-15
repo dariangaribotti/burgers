@@ -9,7 +9,8 @@ use Session;
 class ControladorWebNosotros extends Controller
 {
     public function index()
-    {
-            return view("web.nosotros");
+    {   
+        $pg = "nosotros";
+        return view("web.nosotros", compact('pg'));
     }
 }

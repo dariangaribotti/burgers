@@ -125,9 +125,9 @@ class Producto extends Model
     {
         $request = $_REQUEST;
         $columns = array(
-            0 => 'nombre',
-            1 => 'cantidad',
-            2 => 'precio',
+            0 => 'A.nombre',
+            1 => 'A.cantidad',
+            2 => 'A.precio',
         );
         $sql = "SELECT DISTINCT
                     A.idproducto,
@@ -144,9 +144,9 @@ class Producto extends Model
 
         //Realiza el filtrado
         if (!empty($request['search']['value'])) {
-            $sql .= " AND ( nombre LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR cantidad LIKE '%" . $request['search']['value'] . "%' ";
-            $sql .= " OR precio LIKE '%" . $request['search']['value'] . "%' )";
+            $sql .= " AND ( A.nombre LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.cantidad LIKE '%" . $request['search']['value'] . "%' ";
+            $sql .= " OR A.precio LIKE '%" . $request['search']['value'] . "%' )";
         }
         $sql .= " ORDER BY " . $columns[$request['order'][0]['column']] . "   " . $request['order'][0]['dir'];
 

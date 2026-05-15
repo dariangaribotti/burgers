@@ -1,9 +1,10 @@
 <?php 
 
-namespace App\Entidades\Sistema; //Evitamos choques de nombre, el namespace los diferencia.
+namespace App\Entidades; //Evitamos choques de nombre, el namespace los diferencia.
 
 use DB; //Importa la fachada de base de datos
 use Illuminate\Database\Eloquent\Model; //Son atajos para no escribir el código completo.
+use Illuminate\Support\Facades\DB as FacadesDB;
 
 class Carrito extends Model {
 
@@ -17,15 +18,18 @@ class Carrito extends Model {
     public function cargarDesdeRequest($request) {
         $this->idcarrito = $request->input('id') != "0" ? $request->input('id') : $this->idcarrito;
         $this->fk_idcliente = $request->input('txtCliente');
+        $this->fk_idproducto = $request->input('txtProducto');
     }
 
     public function insertar()
     {
         $sql = "INSERT INTO carritos (
-                fk_idcliente
-            ) VALUES (?);";
+                fk_idcliente,
+                fk_idproducto
+            ) VALUES (?, ?);";
         $result = DB::insert($sql, [
-            $this->fk_idcliente
+            $this->fk_idcliente,
+            $this->fk_idproducto
         ]);
         return $this->idcarrito = DB::getPdo()->lastInsertId();
     }
@@ -33,9 +37,15 @@ class Carrito extends Model {
     public function guardar()
     {
         $sql = "UPDATE carritos SET
-            fk_idcliente=$this->fk_idcliente
-            WHERE idcarrito=?";
-        $affected = DB::update($sql, [$this->idcarrito]);
+                fk_idcliente = ?,
+                fk_idproducto = ?
+                WHERE idcarrito = ?";
+        $affected = DB::update($sql, [
+            $this->fk_idcliente,
+            $this->fk_idproducto,
+            $this->idcarrito
+        ]);
+        return $affected;
     }
 
     public function eliminar()
@@ -49,7 +59,8 @@ class Carrito extends Model {
     {
         $sql = "SELECT
                 idcarrito,
-                fk_idcliente
+                fk_idcliente,
+                fk_idproducto
             FROM carritos ORDER BY fk_idcliente ASC";
         $lstRetorno = DB::select($sql);
         return $lstRetorno;
@@ -59,7 +70,8 @@ class Carrito extends Model {
     {
         $sql = "SELECT
                 idcarrito,
-                fk_idcliente
+                fk_idcliente,
+                fk_idproducto
             FROM carritos WHERE idcarrito = $idCarrito";
         $lstRetorno = DB::select($sql);
 
@@ -71,6 +83,17 @@ class Carrito extends Model {
         return null;
     }
 
+    public function obtenerProductos($idCarrito){
+        $sql = "SELECT 
+                    B.imagen, 
+                    B.nombre,
+                    B.precio
+                FROM productos B
+                INNER JOIN carritos A ON B.idproducto = A.fk_idproducto
+                WHERE A.idcarrito = ?";
+        $lstRetorno = DB::select($sql, [$idCarrito]); // Le pasas el valor dentro de un array
+        return $lstRetorno;
+    }
 }
 
 ?>
