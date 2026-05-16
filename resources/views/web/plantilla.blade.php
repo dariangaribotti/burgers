@@ -54,16 +54,17 @@
 
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav  mx-auto ">
-              <li class="nav-item <?php echo ( $pg == "home" ) ? "active" : ""; ?>">
+              <!-- Se usa ?? '' para que no explote en páginas que no envían la variable $pg -->
+              <li class="nav-item <?php echo (($pg ?? '') == "home" ) ? "active" : ""; ?>">
                 <a class="nav-link" href="/">HOME <span class="sr-only">(current)</span></a>
               </li>
-              <li class="nav-item <?php echo ( $pg == "takeaway" ) ? "active" : ""; ?>">
+              <li class="nav-item <?php echo (($pg ?? '') == "takeaway" ) ? "active" : ""; ?>">
                 <a class="nav-link" href="/takeaway">TAKEAWAY</a>
               </li>
-              <li class="nav-item <?php echo ( $pg == "nosotros" ) ? "active" : ""; ?>">
+              <li class="nav-item <?php echo (($pg ?? '') == "nosotros" ) ? "active" : ""; ?>">
                 <a class="nav-link" href="/nosotros">NOSOTROS</a>
               </li>
-              <li class="nav-item <?php echo ( $pg == "contacto" ) ? "active" : ""; ?>">
+              <li class="nav-item <?php echo (($pg ?? '') == "contacto" ) ? "active" : ""; ?>">
                 <a class="nav-link" href="/contacto">CONTACTO</a>
               </li>
             </ul>

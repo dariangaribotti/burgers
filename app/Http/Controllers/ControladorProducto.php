@@ -118,8 +118,8 @@ class ControladorProducto extends Controller
             if ($aProducto[$i]->imagen != "") {
                 // Usamos asset() para generar la ruta web hacia public/files/
                 $rutaImagen = asset('files/' . $aProducto[$i]->imagen);
-                // Armamos la etiqueta HTML de la imagen (le puse 50px para que no rompa la tabla)
-                $row[] = '<img src="' . $rutaImagen . '" class="img-thumbnail" style="width: 50px; height: 50px; object-fit: cover;">';
+                // Armamos la etiqueta HTML de la imagen
+                $row[] = '<img src="' . $rutaImagen . '" class="img-thumbnail" style="width: 80px; height: 80px; object-fit: cover;">';
             } else {
                 // Si no tiene imagen, mostramos un texto alternativo
                 $row[] = '<span class="badge badge-secondary">Sin imagen</span>';
