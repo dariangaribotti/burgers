@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Entidades\Producto;
 use App\Entidades\Sistema\Patente;
 use App\Entidades\Sistema\Usuario;
 use Session;

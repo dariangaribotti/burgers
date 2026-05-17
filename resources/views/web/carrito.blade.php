@@ -12,21 +12,19 @@
                 <div class="col-12">
                     <table class="table-hover table table-borderless">
                     <thead>
-                            @foreach($aProductos as $producto)
                             <tr>
-                                <td>imagen</td>
                                 <th>nombre</th>
                                 <th>precio</th>
+                                <td>imagen</td>
                                 <td>Eliminar</td>
                             </tr>
-                            @endforeach
                     </thead>
                         <tbody>
-                                @foreach($aProductos as $producto)
+                                @foreach($aCarritos as $carrito)
                             <tr>
-                                <td>{{$producto->imagen}}</td>
-                                <th>{{$producto->nombre}}</th>
-                                <th>{{$producto->precio}}</th>
+                                <th>{{$carrito->nombre}}</th>
+                                <th>{{$carrito->precio}}</th>
+                                <td>{{$carrito->imagen}}></td>
                                 <td>Eliminar</td>
                             </tr>
                                 @endforeach

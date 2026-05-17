@@ -83,7 +83,7 @@ class Carrito extends Model {
         return null;
     }
 
-    public function obtenerProductos($idCarrito){
+    public function obtenerPorCliente($idCarrito){
         $sql = "SELECT 
                     B.imagen, 
                     B.nombre,
@@ -91,7 +91,7 @@ class Carrito extends Model {
                 FROM productos B
                 INNER JOIN carritos A ON B.idproducto = A.fk_idproducto
                 WHERE A.idcarrito = ?";
-        $lstRetorno = DB::select($sql, [$idCarrito]); // Le pasas el valor dentro de un array
+        $lstRetorno = DB::select($sql, [$idCarrito]);
         return $lstRetorno;
     }
 }

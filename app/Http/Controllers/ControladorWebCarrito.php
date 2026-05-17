@@ -13,11 +13,10 @@ class ControladorWebCarrito extends Controller
 {
     public function index()
     {   
-        $idCarrito = 1;
+        $idCarrito = 2;
         $carrito = new Carrito();
-        $aCarritos = $carrito->obtenerPorId($idCarrito);
-        $aProductos = $carrito->obtenerProductos($idCarrito);
-        return view("web.carrito", compact("aCarritos", "aProductos"));
+        $aCarritos = $carrito->obtenerPorCliente($idCarrito);
+        return view("web.carrito", compact("aCarritos"));
     }
 
     public function guardar(Request $request){

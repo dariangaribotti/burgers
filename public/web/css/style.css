@@ -705,7 +705,8 @@ a:focus {
   font-size: 16px;
 }
 
-.book_section .form_container button {
+.book_section .form_container button,
+ .book_section .form_container a {
   margin-top: 15px;
   border: none;
   text-transform: uppercase;
