@@ -31,7 +31,7 @@ class ControladorWebRegistrarse extends Controller
         $msg["MSG"] = "Complete todos los datos.";
         $msg["ESTADO"] = "danger";
     }
-    return view("web.registrarse", compact("msg"));
+    return view("web.registrarse", compact('msg'));
     /*
     1. metodo registrarse
     2. instanciar la clase cliente

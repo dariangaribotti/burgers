@@ -165,16 +165,34 @@ class Cliente extends Model
     {
     $sql = "SELECT 
             idcliente, 
-            correo, 
-            clave FROM clientes WHERE correo = ?";
+            nombre,
+            apellido,
+            correo,
+            dni,
+            celular,
+            clave 
+            FROM clientes 
+            WHERE correo = ?";
     $lstRetorno = DB::select($sql, [$correo]);
-    // Si hay resultados, devolvemos el primero (el objeto con los 3 datos)
-    return (count($lstRetorno) > 0) ? $lstRetorno[0] : null;
+
+    if (count($lstRetorno) > 0) {
+            $this->idcliente = $lstRetorno[0]->idcliente;
+            $this->nombre = $lstRetorno[0]->nombre;
+            $this->apellido = $lstRetorno[0]->apellido;
+            $this->correo = $lstRetorno[0]->correo;
+            $this->dni = $lstRetorno[0]->dni;
+            $this->celular = $lstRetorno[0]->celular;
+            $this->clave = $lstRetorno[0]->clave;
+            return $this;
+        }
+        return null;
     }
 
     public function actualizarClave()
 {
-    $sql = "UPDATE clientes SET clave = ? WHERE idcliente = ?";
+    $sql = "UPDATE clientes 
+            SET clave = ? 
+            WHERE idcliente = ?";
     $affected = DB::update($sql, [
         $this->clave,
         $this->idcliente

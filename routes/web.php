@@ -30,6 +30,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::post('/carrito', 'ControladorWebCarrito@ingresarCompra');
     Route::get('/mi-cuenta', 'ControladorWebMiCuenta@index')->name('mi.cuenta');
     Route::post('/mi-cuenta', 'ControladorWebMiCuenta@guardar');
+    Route::get('/mi-cuenta', 'ControladorWebMiCuenta@cerrarSesion');
     Route::get('/login', 'ControladorWebLogin@index');
     Route::post('/login', 'ControladorWebLogin@ingresar');
     Route::get('/registrarse', 'ControladorWebRegistrarse@index');

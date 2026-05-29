@@ -4,39 +4,66 @@ namespace App\Http\Controllers;
 
 use App\Entidades\Cliente;
 use Illuminate\Http\Request;
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+use Session;
 
 require app_path() . '/start/constants.php';
 
 class ControladorWebRecuperarClave extends Controller
 {
-    public function index()
-    {
-        return view("web.recuperar-clave");
-    }
+  public function index()
+  {
+    return view("web.recuperar-clave");
+  }
 
-    public function recuperarClave(Request $request)
-    {  
-      $correoIngresado = $request->input('txtEmail');
-      $claveIngresada = $request->input('txtClave');
+  public function recuperarClave(Request $request)
+  {
+    $titulo = 'Recupero de clave';
+    $email = $request->input('txtEmail');
+    $clave = rand(1000, 9999);
 
-      $cliente = new Cliente();
-      $lstcliente = $cliente->obtenerPorCorreo($correoIngresado);
-      
+    $cliente = new Cliente();
+    $cliente->obtenerPorCorreo($email);
 
-      if($lstcliente != null){
-        $cliente->idcliente = $lstcliente->idcliente;
-        $cliente->clave = password_hash($claveIngresada, PASSWORD_DEFAULT);
-        $cliente->actualizarClave();
+    if ($cliente->email != ""){
+      //Envia  mail con las instrucciones
 
-        $msg['ESTADO'] = "success";
-        $msg['MSG'] = "Clave actualizada con exito"; 
-        return view('web.recuperar-clave', compact('msg'));   
-      } else {
-        $msg['ESTADO'] = "danger";
-        $msg['MSG'] = "No se ha registrado aun"; 
+      $data = "Instrucciones";
 
-        return view('web.recuperar-clave', compact('msg'));       
+      $mail = new PHPMailer(true);                              // Passing `true` enables exceptions
+      try {
+        //Server settings
+        $mail->SMTPDebug = 0;                                 // Enable verbose debug output
+        $mail->isSMTP();                                      // Set mailer to use SMTP
+        $mail->Host = env('MAIL_HOST');  // Specify main and backup SMTP servers
+        $mail->SMTPAuth = true;                               // Enable SMTP authentication
+        $mail->Username = env('MAIL_USERNAME');                 // SMTP username
+        $mail->Password = env('MAIL_PASSWORD');                           // SMTP password
+        $mail->SMTPSecure = env('MAIL_ENCRYPTION');                            // Enable TLS encryption, `ssl` also accepted
+        $mail->Port = env('MAIL_PORT');                                    // TCP port to connect to
+
+        //Recipients
+        $mail->setFrom(env('MAIL_FROM_ADDRESS'), env('MAIL_FROM_NAME'));
+        $mail->addAddress($email);               // Name is optional
+        $mail->addReplyTo('no-reply@fmed.uba.ar');
+
+        //Content
+        $mail->isHTML(true);
+        $mail->Subject = 'Recupero de clave';
+        $mail->Body    = "Los datos de acceso son: 
+        Usuario: $cliente->correo
+        Clave: $clave
+        ";
+        //$mail->send();
+        $mensaje = "Se ha cambiado correctamente la clave";
+        return view('web.recuperar-clave', compact('titulo', 'mensaje'));
+      } catch (Exception $e) {
+        $mensaje = "Hubo un error al cambiar la clave";
+        return view('web.recuperar-clave', compact('titulo', 'mensaje'));
       }
+    } else {
+      return view('web.recuperar-clave', compact('titulo', 'mensaje'));
     }
-      
+  }
 }

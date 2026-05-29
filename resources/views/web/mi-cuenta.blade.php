@@ -31,6 +31,7 @@
                         <div class="btn_box pb-5">
                             <div class="ps-5">
                                 <button type="submit" name="btnRegistrarse" id="btnRegistrarse" class="mr-4">GUARDAR</button>
+                                <a href="/mi-cuenta" class="btn mr-4 my-0">Desloguear</a>
                             </div>
                         </div>
                     </div>
