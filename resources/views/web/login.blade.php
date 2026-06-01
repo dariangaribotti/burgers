@@ -10,8 +10,8 @@
         <div class="row">
                 <div class="col-md-6">
                     @if(isset($msg))
-                        <div class="alert alert-{{ $msg['ESTADO'] }} alert-dismissible role="alert">
-                            {{ $msg['MSG'] }}
+                        <div class="alert alert-{{ $msg["ESTADO"] }} alert-dismissible role="alert">
+                            {{ $msg["MSG"] }}
                         </div>
                     @endif
                 <div class="form_container justify-content-center">
