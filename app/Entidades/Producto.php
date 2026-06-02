@@ -14,6 +14,7 @@ class Producto extends Model
     protected $fillable = [
         'idproducto',
         'nombre',
+        'descripcion',
         'cantidad',
         'precio',
         'imagen',
@@ -24,6 +25,7 @@ class Producto extends Model
     {
         $this->idproducto = $request->input('id') != "0" ? $request->input('id') : $this->idproducto;
         $this->nombre = $request->input('txtNombre');
+        $this->nombre = $request->input('txtDescripcion');
         $this->cantidad = $request->input('txtCantidad') != "" ? $request->input('txtCantidad') : 0;
         $this->precio = $request->input('txtPrecio') != "" ? $request->input('txtPrecio') : 0;
         $this->imagen = $request->input('fileImagen');
@@ -34,13 +36,15 @@ class Producto extends Model
     {
         $sql = "INSERT INTO productos (
                 nombre,
+                descripcion,
                 cantidad,
                 precio,
                 imagen,
                 fk_idcategoria
-            ) VALUES (?, ?, ?, ?, ?);";
+            ) VALUES (?, ?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->nombre,
+            $this->descripcion,
             $this->cantidad,
             $this->precio,
             $this->imagen,
@@ -53,6 +57,7 @@ class Producto extends Model
     {
         $sql = "UPDATE productos SET
             nombre='$this->nombre',
+            nombre='$this->descripcion',
             cantidad='$this->cantidad',
             precio=$this->precio,
             imagen='$this->imagen',
@@ -73,6 +78,7 @@ class Producto extends Model
         $sql = "SELECT
                 idproducto,
                 nombre,
+                descripcion,
                 cantidad,
                 precio,
                 imagen,
@@ -88,6 +94,7 @@ class Producto extends Model
         $sql = "SELECT
                   idproducto,
                   nombre,
+                  descripcion,
                   cantidad,
                   precio,
                   imagen,
@@ -102,6 +109,7 @@ class Producto extends Model
         $sql = "SELECT
                     idproducto,
                     nombre,
+                    descripcion,
                     cantidad,
                     precio,
                     imagen,
@@ -112,6 +120,7 @@ class Producto extends Model
         if (count($lstRetorno) > 0) {
             $this->idproducto = $lstRetorno[0]->idproducto;
             $this->nombre = $lstRetorno[0]->nombre;
+            $this->descripcion = $lstRetorno[0]->descripcion;
             $this->cantidad = $lstRetorno[0]->cantidad;
             $this->precio = $lstRetorno[0]->precio;
             $this->imagen = $lstRetorno[0]->imagen;
@@ -132,6 +141,7 @@ class Producto extends Model
         $sql = "SELECT DISTINCT
                     A.idproducto,
                     A.nombre,
+                    A.descripcion,
                     A.cantidad,
                     A.precio,
                     A.imagen,
@@ -152,6 +162,27 @@ class Producto extends Model
 
         $lstRetorno = DB::select($sql);
 
+        return $lstRetorno;
+    }
+
+    public function obtenerPorCategoria()
+    {
+
+        $sql = "SELECT DISTINCT
+                    A.idproducto,
+                    A.nombre,
+                    A.descripcion,
+                    A.cantidad,
+                    A.precio,
+                    A.imagen,
+                    A.fk_idcategoria,
+                    B.Nombre as categoria
+                    FROM productos A
+                    INNER JOIN categorias B ON A.fk_idcategoria = B.idcategoria
+                    ORDER BY A.idproducto DESC
+                ";
+
+        $lstRetorno = DB::select($sql);
         return $lstRetorno;
     }
 }

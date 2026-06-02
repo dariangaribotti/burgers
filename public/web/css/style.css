@@ -562,20 +562,24 @@ a:focus {
           justify-content: space-between;
 }
 
-.food_section .box .options a {
-  width: 40px;
-  height: 40px;
-  border-radius: 100%;
-  background: #ffbe33;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+.food_section .box .options a,
+.food_section .box .options button {
+  background-color: #ffbe33;
+  color: #ffffff !important;
+  padding: 8px 25px;
+  border-radius: 45px;
+  display: inline-block;
+  text-align: center;
+  transition: all 0.3s;
+  border: none; 
+  outline: none; 
+  cursor: pointer; 
+}
+
+.food_section .box .options a:hover,
+.food_section .box .options button:hover {
+  background-color: #e69c00;
+  color: #ffffff;
 }
 
 .food_section .box .options a svg {
@@ -706,7 +710,8 @@ a:focus {
 }
 
 .book_section .form_container button,
- .book_section .form_container a {
+ .book_section .form_container a,
+ .book_section .form_container .btn {
   margin-top: 15px;
   border: none;
   text-transform: uppercase;
