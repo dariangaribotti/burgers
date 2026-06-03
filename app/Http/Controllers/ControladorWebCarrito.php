@@ -6,6 +6,7 @@ use App\Entidades\Carrito;
 use App\Entidades\Producto;
 use App\Entidades\Sistema\Patente;
 use App\Entidades\Sistema\Usuario;
+
 use Session;
    
 
@@ -13,9 +14,9 @@ class ControladorWebCarrito extends Controller
 {
     public function index()
     {   
-        $idCarrito = 2;
+        $idCliente = Session::get("idCliente");
         $carrito = new Carrito();
-        $aCarritos = $carrito->obtenerPorCliente($idCarrito);
+        $aCarritos = $carrito->obtenerPorCliente($idCliente);
         return view("web.carrito", compact("aCarritos"));
     }
 

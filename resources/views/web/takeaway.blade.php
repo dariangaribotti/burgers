@@ -10,18 +10,15 @@
 
       <ul class="filters_menu">
         <li class="active" data-filter="*">Todo</li>
-        <li data-filter=".Hamburguesa">Hamburguesa</li>
-        <li data-filter=".Pizza">Pizza</li>
-        <li data-filter=".Pasta">Pasta</li>
-        <li data-filter=".Papas">Papas</li>
+        @foreach($aCategorias as $categoria)
+        <li data-filter=".{{ $categoria->nombre }}">{{ $categoria->nombre }}</li>
+        @endforeach
       </ul>
 
       <div class="filters-content">
         <div class="row grid">
           @foreach($aProductos as $producto)
-          @foreach($aCategorias as $categoria)
-          <div class="col-sm-6 col-lg-4 all {{ $categoria->categoria }}">
-          @endforeach
+          <div class="col-sm-6 col-lg-4 all {{ $producto->categoria }}">
             <div class="box">
               <div>
                 <div class="img-box">

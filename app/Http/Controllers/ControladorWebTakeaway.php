@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Entidades\Producto;
+use App\Entidades\Categoria;
 use App\Entidades\Sistema\Patente;
 use App\Entidades\Sistema\Usuario;
 use Session;
@@ -13,8 +14,13 @@ class ControladorWebTakeaway extends Controller
     {   
         $pg = "takeaway";
         $producto = new Producto();
-        $aProductos = $producto->obtenerTodos();
-        $aCategorias = $producto->obtenerPorCategoria();
+        $categoria = new Categoria();
+        $aProductos = $producto->obtenerPorCategoria();
+        $aCategorias = $categoria->obtenerTodos();
         return view("web.takeaway", compact('pg', 'aProductos', 'aCategorias'));
+    }
+
+    public function insertar(){
+        
     }
 }

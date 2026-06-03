@@ -26,7 +26,7 @@
                         <div class="btn_box pb-5">
                             <div class="ps-5">
                                 <button type="submit" name="btnIngresar" id="btnIngresar" class="mr-4 border-0">INGRESAR</button>
-                                <a href="/registrarse" name="btnRegistrarse" id="btnRegistrarse" class="mr-4 border-0">REGISTRARSE</a>
+                                <a href="/recuperar-clave" name="btnRegistrarse" id="btnRegistrarse" class="mr-4 border-0">RECUPERAR CLAVE</a>
                             </div>
                         </div>
                     </form>

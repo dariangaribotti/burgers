@@ -20,10 +20,14 @@ class ControladorWebRegistrarse extends Controller
     public function registrarse(Request $request)
     {  
     $cliente = new Cliente();
+    $cliente->nombre = $request->input("txtNombre");
+    $cliente->apellido = $request->input("txtApellido");
     $cliente->correo = $request->input("txtEmail");
+    $cliente->documento = $request->input("txtDocumento");
+    $cliente->celular = $request->input("txtNumero");
     $cliente->clave = password_hash($request->input("txtClave"), PASSWORD_DEFAULT);
 
-    if(filled($cliente->correo) && filled($cliente->clave)){
+    if($cliente->nombre != "" && $cliente->nombre !=){
         $cliente->registrarse();
         $msg["MSG"] = "Se ha registrado correctamente.";
         $msg["ESTADO"] = "success";

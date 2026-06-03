@@ -37,6 +37,12 @@ if (isset($msg)) {
                                 <button type="button" name="btnVolver" id="btnVolver" onclick="window.history.back();">VOLVER</button>
                             </div>
                         </div>
+                         <div class="btn_box pb-5">
+                            <div class="d-flex align-items-center">
+                                <h2 class="mb-0 mr-2">No tenes cuenta?</h2>
+                                <a href="/registrarse">REGISTRATE</a>
+                            </div>
+                        </div>
                     </form>
                 </div>
             </div>

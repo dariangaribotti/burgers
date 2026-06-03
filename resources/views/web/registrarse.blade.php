@@ -23,7 +23,19 @@ if (isset($msg)) {
                     <form action="/registrarse" method="POST">
                         @csrf
                         <div>
+                            <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Nombre" required />
+                        </div>
+                        <div>
+                            <input type="text" name="txtApellido" id="txtApellido" class="form-control" placeholder="Apellido" required />
+                        </div>
+                        <div>
                             <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Correo" required />
+                        </div>
+                        <div>
+                            <input type="text" name="txtDocumento" id="txtDocumento" class="form-control" placeholder="Documento" required />
+                        </div>
+                        <div>
+                            <input type="number" name="txtTelefono" id="txtTelefono" class="form-control" placeholder="Telefono" required />
                         </div>
                         <div>
                             <input type="password" name="txtClave" id="txtClave" class="form-control" placeholder="Contraseña" required />
