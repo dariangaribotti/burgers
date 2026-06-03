@@ -23,27 +23,18 @@ class ControladorWebRegistrarse extends Controller
     $cliente->nombre = $request->input("txtNombre");
     $cliente->apellido = $request->input("txtApellido");
     $cliente->correo = $request->input("txtEmail");
-    $cliente->documento = $request->input("txtDocumento");
-    $cliente->celular = $request->input("txtNumero");
+    $cliente->dni = $request->input("txtDocumento");
+    $cliente->celular = $request->input("txtTelefono");
     $cliente->clave = password_hash($request->input("txtClave"), PASSWORD_DEFAULT);
 
-    if($cliente->nombre != "" && $cliente->nombre !=){
-        $cliente->registrarse();
-        $msg["MSG"] = "Se ha registrado correctamente.";
-        $msg["ESTADO"] = "success";
+    if($request->filled(["txtNombre", "txtApellido", "txtEmail", "txtDocumento", "txtTelefono", "txtClave"])){
+        $cliente->insertar();
+        return redirect("/login");
     } else {
         $msg["MSG"] = "Complete todos los datos.";
         $msg["ESTADO"] = "danger";
+        return view("web.registrarse", compact('msg'));
     }
-    return view("web.registrarse", compact('msg'));
-    /*
-    1. metodo registrarse
-    2. instanciar la clase cliente
-    3. cargar el objeto, recien instanciado con los valores que vienen con el formulario, para eso usar request input
-    4. luego llamar al metodo insertar del obj  eto cliente
-    5. listo
-
-    Cuando cargo los datos al formulario del cliente, se guarda ya encriptado cuando se asigna en el objeto
-    */
+    
     }
 }

@@ -26,7 +26,7 @@ class ControladorWebRecuperarClave extends Controller
     $cliente = new Cliente();
     $cliente->obtenerPorCorreo($email);
 
-    if ($cliente->email != ""){
+    if ($request->filled(["txtEmail"])){
       //Envia  mail con las instrucciones
 
       $data = "Instrucciones";
@@ -56,13 +56,17 @@ class ControladorWebRecuperarClave extends Controller
         Clave: $clave
         ";
         //$mail->send();
-        $mensaje = "Se ha cambiado correctamente la clave";
+        $msg["MSG"] = "Se ha cambiado correctamente la clave";
+        $msg["ESTADO"] = "success";
         return view('web.recuperar-clave', compact('titulo', 'mensaje'));
       } catch (Exception $e) {
-        $mensaje = "Hubo un error al cambiar la clave";
+        $msg["MSG"] = "Hubo un error al cambiar la clave";
+        $msg["ESTADO"] = "danger";
         return view('web.recuperar-clave', compact('titulo', 'mensaje'));
       }
     } else {
+      $msg["MSG"] = "Complete los datos";
+      $msg["ESTADO"] = "danger";
       return view('web.recuperar-clave', compact('titulo', 'mensaje'));
     }
   }

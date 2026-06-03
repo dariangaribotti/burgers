@@ -14,11 +14,7 @@ class ControladorWebMiCuenta extends Controller
 {
     public function index()
     {   
-        dd("Llegué a Mi Cuenta. El contenido de la sesión es: ", session()->all());
-        if(!Session::has('usuario_id')){
-            return redirect('/login');
-        }
-        $id = Session::get('usuario_id');
+        $id = Session::get('idCliente');
         $cliente = new Cliente();
         $cliente->obtenerPorId($id);
         $pedido = new Pedido();
@@ -28,10 +24,7 @@ class ControladorWebMiCuenta extends Controller
 
     public function guardar(Request $request)
     {
-        if(!Session::has('usuario_id')){
-            return redirect('/login');
-        }
-        $id = Session::get('usuario_id');
+        $id = Session::get('idCliente');
         $cliente = new Cliente();
         $cliente->cargarDesdeRequest($request);
         $cliente->idcliente = $id;
