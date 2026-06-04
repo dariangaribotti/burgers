@@ -6,6 +6,7 @@ use App\Entidades\Producto;
 use App\Entidades\Categoria;
 use App\Entidades\Sistema\Patente;
 use App\Entidades\Sistema\Usuario;
+use Illuminate\Http\Request;
 use Session;
 
 class ControladorWebTakeaway extends Controller
@@ -20,8 +21,15 @@ class ControladorWebTakeaway extends Controller
         return view("web.takeaway", compact('pg', 'aProductos', 'aCategorias'));
     }
 
-    public function insertar(){
-        //Guardo los datos que almacene para el carrito
-        //Envio los datos al carrito
+    public function ingresar(Request $Request){
+        $id = Session::get("idCliente");
+        
+        $producto = new Producto();
+        $producto->idproducto = $Request->input("txtIdProducto");
+        
+        if($id )
+
+
+        return view("web.takeaway", compact("idproducto"));
     }
 }

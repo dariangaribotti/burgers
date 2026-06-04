@@ -35,8 +35,9 @@
                     <h6>
                       {{ $producto->precio }}
                     </h6>
-                    <form action="POST">
-                      <button type="submit">Agregar</button>
+                    <form action="/takeaway" method="POST">
+                      <input type="hidden" name="txtIdProducto" value="{{ $producto->idproducto }}">
+                      <button type="submit" name="btnAgregar" id="btnAgregar">Agregar</button>
                     </form>
                   </div>
                 </div>
