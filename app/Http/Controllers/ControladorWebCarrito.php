@@ -12,12 +12,14 @@ class ControladorWebCarrito extends Controller
     public function index()
     {   
         $id = Session::get("idCliente");
+        $carrito = new Carrito();
         
         //Recibo las cosas que agregue en takeaway
         if(isset($id) && $id != ""){
-            $carrito = new Carrito();
             $aCarritos = $carrito->obtenerPorCliente($id);
             return view("web.carrito", compact("aCarritos"));
+        } else {
+            return view("web.carrito", compact("carrito"));
         }
     }
 
