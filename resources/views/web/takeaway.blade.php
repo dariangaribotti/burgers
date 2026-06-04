@@ -6,6 +6,11 @@
         <h2>
           Nuestro menu
         </h2>
+          @if(isset($msg))
+            <div class="my-2 alert alert-{{ $msg["ESTADO"] }} alert-dismissible role="alert">
+                {{ $msg["MSG"] }}
+            </div>
+          @endif
       </div>
 
       <ul class="filters_menu">
@@ -33,10 +38,12 @@
                   </p>
                   <div class="options">
                     <h6>
-                      {{ $producto->precio }}
+                      ${{ number_format($producto->precio, 0, ',', '.') }}
                     </h6>
                     <form action="/takeaway" method="POST">
-                      <input type="hidden" name="txtIdProducto" value="{{ $producto->idproducto }}">
+                      @csrf
+                      <input type="hidden" name="txtProducto" value="{{ $producto->idproducto }}">
+                      <input type="number" name="txtCantidad" class="rounded" value="1" min="1" style="width: 50px; text-align: center;">
                       <button type="submit" name="btnAgregar" id="btnAgregar">Agregar</button>
                     </form>
                   </div>

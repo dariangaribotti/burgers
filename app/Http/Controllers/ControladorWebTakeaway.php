@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Entidades\Carrito;
 use App\Entidades\Producto;
 use App\Entidades\Categoria;
-use App\Entidades\Sistema\Patente;
-use App\Entidades\Sistema\Usuario;
 use Illuminate\Http\Request;
+
 use Session;
 
 class ControladorWebTakeaway extends Controller
@@ -22,14 +22,30 @@ class ControladorWebTakeaway extends Controller
     }
 
     public function ingresar(Request $Request){
-        $id = Session::get("idCliente");
-        
         $producto = new Producto();
-        $producto->idproducto = $Request->input("txtIdProducto");
+        $categoria = new Categoria();
+
+        $aProductos = $producto->obtenerPorCategoria();
+        $aCategorias = $categoria->obtenerTodos();
+
+        $id = Session::get("idCliente");
+        $idProducto = $Request->input("txtProducto");
+        $cantidad = $Request->input("txtCantidad");
         
-        if($id )
+        if((isset($id) && $id != "")){
+            $carrito = new Carrito();
+            $carrito->fk_idcliente = $id;
+            $carrito->fk_idproducto = $idProducto;
+            $carrito->cantidad = $cantidad;
+            $carrito->insertar();   
 
-
-        return view("web.takeaway", compact("idproducto"));
+            $msg["ESTADO"] = "success";
+            $msg["MSG"] = "El producto se ha agregado al carrito";
+            return view("web.takeaway", compact("msg", "aProductos", "aCategorias"));
+        } else {
+            $msg["ESTADO"] = "danger";
+            $msg["MSG"] = "No agregó ningún producto al carrito";
+            return view("web.takeaway", compact("msg", "aProductos", "aCategorias"));
+        }
     }
 }
