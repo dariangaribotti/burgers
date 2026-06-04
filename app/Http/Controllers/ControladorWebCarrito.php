@@ -9,21 +9,20 @@ use App\Entidades\Sistema\Usuario;
 
 use Session;
    
-
 class ControladorWebCarrito extends Controller
 {
     public function index()
     {   
-        $idCliente = Session::get("idCliente");
+        $id = Session::get("idCliente");
+        //Recibo las cosas que agregue en takeaway
+        //Sino salta un mensaje de agregue al carrito en takeaway
+
         $carrito = new Carrito();
-        $aCarritos = $carrito->obtenerPorCliente($idCliente);
+        $aCarritos = $carrito->obtenerPorCliente($id);
         return view("web.carrito", compact("aCarritos"));
     }
 
-    public function guardar(Request $request){
-        $carrito = new Carrito();
-        $carrito->cargarDesdeRequest($request);
-        $carrito->guardar();
-        return view("web.carrito", compact("carrito"));
+    public function ingresarCompra(Request $request){
+        
     }
 }

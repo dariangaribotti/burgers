@@ -21,6 +21,7 @@ class ControladorWebTakeaway extends Controller
     }
 
     public function insertar(){
-        
+        //Guardo los datos que almacene para el carrito
+        //Envio los datos al carrito
     }
 }

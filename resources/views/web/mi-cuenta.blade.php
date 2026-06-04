@@ -11,6 +11,11 @@
             @csrf
             <div class="row">
                 <div class="col-md-6">
+                    @if(isset($msg))
+                    <div class="alert alert-{{ $msg["ESTADO"] }} alert-dismissible role="alert">
+                        {{ $msg["MSG"] }}
+                    </div>
+                    @endif
                     <div class="form_container justify-content-center">
                         <div>
                             <label for="">Nombre</label>
@@ -26,12 +31,15 @@
                         </div>
                         <div>
                             <label for="">Email</label>
-                            <input type="email" class="form-control" placeholder="Email" name="txtEmail" id="txtEmail" value="{{ $cliente->email }}" />
+                            <input type="email" class="form-control" placeholder="Email" name="txtEmail" id="txtEmail" value="{{ $cliente->correo }}" />
+                        </div>
+                        <div>
+                            <label for="">Documento</label>
+                            <input type="text" class="form-control" placeholder="Documento" name="txtDocumento" id="txtDocumento" value="{{ $cliente->dni }}" />
                         </div>
                         <div class="btn_box pb-5">
                             <div class="ps-5">
                                 <button type="submit" name="btnRegistrarse" id="btnRegistrarse" class="mr-4">GUARDAR</button>
-                                <a href="/mi-cuenta" class="btn mr-4 my-0">Desloguear</a>
                             </div>
                         </div>
                     </div>
