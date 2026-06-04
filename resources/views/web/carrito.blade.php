@@ -7,7 +7,7 @@
                     <h1>Carrito</h1>
                 </div>
             </div>
-            @if($aCarritos)
+            @if(isset($aCarritos))
             <div class="row">
                 <div class="col-12">
                     <table class="table-hover table table-borderless">

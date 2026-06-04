@@ -38,7 +38,7 @@ Route::group(array('domain' => '127.0.0.1'), function () {
     Route::get('/recuperar-clave', 'ControladorWebRecuperarClave@index');
     Route::post('/recuperar-clave', 'ControladorWebRecuperarClave@recuperarClave');
     Route::get('/cambiar-clave', 'ControladorWebCambiarClave@index');
-    Route::post('/cambiar-clave', 'ControladorWebCambiarClave@guardar');
+    Route::post('/cambiar-clave', 'ControladorWebCambiarClave@cambiarClave');
  
 
 /* --------------------------------------------- */

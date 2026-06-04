@@ -6,19 +6,19 @@
 </script>
 @endsection
 @section("contenido")
-<?php
-if (isset($msg)) {
-    echo '<script>msgShow("' . $msg["MSG"] . '", "' . $msg["ESTADO"] . '")</script>';
-}
-?>
-<div id = "msg"></div>
+<div id="msg"></div>
 <section class="book_section pt-5">
     <div class="container">
         <div class="heading_container">
-            <h2>Recuperar clave</h2>
+            <h2>Cambiar clave</h2>
         </div>
         <div class="row">
             <div class="col-md-6">
+                @if(isset($msg))
+                <div class="alert alert-{{ $msg['ESTADO'] }} alert-dismissible" role="alert">
+                    {{ $msg['MSG'] }}
+                </div>
+                @endif
                 <div class="form_container justify-content-center">
                     <form action="/cambiar-clave" method="POST">
                         @csrf

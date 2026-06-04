@@ -11,31 +11,35 @@ require app_path() . '/start/constants.php';
 class ControladorWebCambiarClave extends Controller
 {
     public function index()
-    { 
-        if (!Session::get('usuario_id')){
+    {
+        $id = Session::get('idCliente');
+        if ($id != "") {
+            return view("web.cambiar-clave");
+        } else {
             return redirect('/login');
         }
-        return view("web.cambiar-clave");
+        
     }
 
-    public function cambiarClave(Request $request){
-      $claveIngresada = $request->input('txtClave');
-      $idCliente = Session::get('usuario_id');
-      
-      if($idCliente > 0){
-        $cliente = new Cliente();
-        $cliente->idcliente = $idCliente;
-        $cliente->clave = password_hash($claveIngresada, PASSWORD_DEFAULT);
-        $cliente->actualizarClave();
+    public function cambiarClave(Request $request)
+    {
+        $claveIngresada = $request->input('txtClave');
+        $id = Session::get('idCliente');
 
-        $msg['ESTADO'] = "success";
-        $msg['MSG'] = "Clave actualizada con exito"; 
-        return view('web.cambiar-clave', compact('msg'));   
-      } else {
-        $msg['ESTADO'] = "danger";
-        $msg['MSG'] = "Error: Sesión no válida."; 
+        if ($id != "") {
+            $cliente = new Cliente();
+            $cliente->idcliente = $id;
+            $cliente->clave = password_hash($claveIngresada, PASSWORD_DEFAULT);
+            $cliente->actualizarClave();
 
-        return view('web.cambiar-clave', compact('msg'));       
-      }
+            $msg['ESTADO'] = "success";
+            $msg['MSG'] = "Clave actualizada con exito";
+            return view('web.cambiar-clave', compact('msg'));
+        } else {
+            $msg['ESTADO'] = "danger";
+            $msg['MSG'] = "Error: Sesión no válida.";
+
+            return view('web.cambiar-clave', compact('msg'));
+        }
     }
 }

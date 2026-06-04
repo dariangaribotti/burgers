@@ -6,7 +6,7 @@
 </script>
 @endsection
 @section("contenido")
-<div id = "msg"></div>
+<div id="msg"></div>
 <section class="book_section pt-5">
     <div class="container">
         <div class="heading_container">
@@ -15,9 +15,9 @@
         <div class="row">
             <div class="col-md-6">
                 @if(isset($msg))
-                    <div class="alert alert-{{ $msg["ESTADO"] }} alert-dismissible role="alert">
-                        {{ $msg["MSG"] }}
-                    </div>
+                <div class="alert alert-{{ $msg['ESTADO'] }} alert-dismissible" role="alert">
+                    {{ $msg['MSG'] }}
+                </div>
                 @endif
                 <div class="form_container justify-content-center">
                     <form action="/recuperar-clave" method="POST">
@@ -37,7 +37,7 @@
                                 <button type="button" name="btnVolver" id="btnVolver" onclick="window.history.back();">VOLVER</button>
                             </div>
                         </div>
-                         <div class="btn_box pb-5">
+                        <div class="btn_box pb-5">
                             <div class="d-flex align-items-center">
                                 <h2 class="mb-0 mr-2">No tenes cuenta?</h2>
                                 <a href="/registrarse">REGISTRATE</a>

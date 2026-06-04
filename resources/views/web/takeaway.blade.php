@@ -7,8 +7,8 @@
           Nuestro menu
         </h2>
           @if(isset($msg))
-            <div class="my-2 alert alert-{{ $msg["ESTADO"] }} alert-dismissible role="alert">
-                {{ $msg["MSG"] }}
+            <div class="my-2 alert alert-{{ $msg['ESTADO'] }} alert-dismissible" role="alert">
+                {{ $msg['MSG'] }}
             </div>
           @endif
       </div>

@@ -86,48 +86,38 @@
     <div class="container">
       <div class="heading_container heading_center">
         <h2>
-          Postulación
+          Trabaja con Nosotros
         </h2>
       </div>
       <div class="row">
         <div class="col-md-6 mx-auto">
+          @if(isset($msg))
+            <div class="alert alert-{{ $msg['ESTADO'] }} alert-dismissible" role="alert">
+                {{ $msg['MSG'] }}
+            </div>
+          @endif
           <div class="form_container">
-            <form action="">
+            <form action="/nosotros" method="POST" enctype="multipart/form-data">
+              @csrf
               <div>
-                <input type="text" class="form-control" placeholder="Your Name" />
+                <input type="text" class="form-control" name="txtNombre" id="txtNombre" placeholder="Nombre" />
               </div>
               <div>
-                <input type="text" class="form-control" placeholder="Phone Number" />
+                <input type="text" class="form-control" name="txtApellido" id="txtApellido" placeholder="Apellido" />
               </div>
               <div>
-                <input type="email" class="form-control" placeholder="Your Email" />
+                <input type="number" class="form-control" name="txtCelular" id="txtCelular" placeholder="Celular" />
               </div>
               <div>
-                <select class="form-control nice-select wide">
-                  <option value="" disabled selected>
-                    How many persons?
-                  </option>
-                  <option value="">
-                    2
-                  </option>
-                  <option value="">
-                    3
-                  </option>
-                  <option value="">
-                    4
-                  </option>
-                  <option value="">
-                    5
-                  </option>
-                </select>
+                <input type="email" class="form-control" name="txtCorreo" id="txtCorreo" placeholder="Correo" />
               </div>
               <div>
-                <input type="date" class="form-control">
+                <h6>Envíanos tu CV</h6>
+                <input type="file" name="fileCurriculum" id="fileCurriculum" accept=".doc, .docx, .pdf" placeholder="Curriculum" />
+                <small class="d-block">Archivos admitidos: .doc, .docx, .pdf</small>
               </div>
               <div class="btn_box d-flex justify-content-center">
-                <button type="submit" formaction="/postulacion-gracias">
-                  POSTULARSE
-                </button>
+                <button type="submit">POSTULARSE</button>
               </div>
             </form>
           </div>

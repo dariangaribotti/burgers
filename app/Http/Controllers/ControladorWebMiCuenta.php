@@ -57,4 +57,8 @@ class ControladorWebMiCuenta extends Controller
             return view("web.mi-cuenta", compact("cliente", "aPedidos", "msg"));
         }
     }
+
+    public function cambiar(){
+        
+    }
 }

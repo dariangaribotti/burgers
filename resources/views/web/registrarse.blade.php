@@ -6,7 +6,7 @@
 </script>
 @endsection
 @section("contenido")
-<div id = "msg"></div>
+<div id="msg"></div>
 <section class="book_section pt-5">
     <div class="container">
         <div class="heading_container">
@@ -15,9 +15,9 @@
         <div class="row">
             <div class="col-md-6">
                 @if(isset($msg))
-                    <div class="alert alert-{{ $msg["ESTADO"] }} alert-dismissible role="alert">
-                        {{ $msg["MSG"] }}
-                    </div>
+                <div class="alert alert-{{ $msg['ESTADO'] }} alert-dismissible" role="alert">
+                    {{ $msg['MSG'] }}
+                </div>
                 @endif
                 <div class="form_container justify-content-center">
                     <form action="/registrarse" method="POST">
@@ -29,7 +29,7 @@
                             <input type="text" name="txtApellido" id="txtApellido" class="form-control" placeholder="Apellido" />
                         </div>
                         <div>
-                            <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Correo"  />
+                            <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Correo" />
                         </div>
                         <div>
                             <input type="text" name="txtDocumento" id="txtDocumento" class="form-control" placeholder="Documento" />
@@ -38,7 +38,7 @@
                             <input type="number" name="txtTelefono" id="txtTelefono" class="form-control" placeholder="Telefono" />
                         </div>
                         <div>
-                            <input type="password" name="txtClave" id="txtClave" class="form-control" placeholder="Contraseña"  />
+                            <input type="password" name="txtClave" id="txtClave" class="form-control" placeholder="Contraseña" />
                         </div>
                         <div class="btn_box pb-5">
                             <div class="ps-5">

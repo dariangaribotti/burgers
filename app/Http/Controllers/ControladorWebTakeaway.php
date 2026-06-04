@@ -44,7 +44,7 @@ class ControladorWebTakeaway extends Controller
             return view("web.takeaway", compact("msg", "aProductos", "aCategorias"));
         } else {
             $msg["ESTADO"] = "danger";
-            $msg["MSG"] = "No agregó ningún producto al carrito";
+            $msg["MSG"] = "Para agregar al carrito, tiene que loguearse.";
             return view("web.takeaway", compact("msg", "aProductos", "aCategorias"));
         }
     }
