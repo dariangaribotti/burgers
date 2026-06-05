@@ -33,8 +33,8 @@
                         </div>
                         <div class="btn_box pb-5">
                             <div class="ps-5">
-                                <button type="submit" name="btnRecuperar" id="btnRecuperar" class="mr-4">RECUPERAR</button>
-                                <button type="button" name="btnVolver" id="btnVolver" onclick="window.history.back();">VOLVER</button>
+                                <button type="submit" name="btnRecuperar" id="btnRecuperar" class="m-0">RECUPERAR</button>
+                                <button type="button" name="btnVolver" id="btnVolver" class="m-0" onclick="window.history.back();">VOLVER</button>
                             </div>
                         </div>
                         <div class="btn_box pb-5">

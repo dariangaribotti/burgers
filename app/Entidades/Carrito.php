@@ -97,8 +97,8 @@ class Carrito extends Model {
                     B.precio
                 FROM productos B
                 INNER JOIN carritos A ON B.idproducto = A.fk_idproducto
-                WHERE A.fk_idcliente = $idCliente";
-        $lstRetorno = DB::select($sql);
+                WHERE A.fk_idcliente = ?"   ;
+        $lstRetorno = DB::select($sql, [$idCliente]);
         return $lstRetorno;
     }
 }

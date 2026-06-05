@@ -46,22 +46,31 @@
                     </div>
                 </div>
         </form>
-        <div class="col-md-4 d-flex justify-content-center align-items-center">
-            <div class="pb-5 pl-5">
+        <div class="d-flex justify-content-center align-items-center">
+            <div class="pb-5">
+                <div class="pb-4">
+                    <h2>Estado del pedido</h2>
+                </div>
                 <table class="table table-hover table-borderless">
-                    <thead>
+                    <thead style="background-color: #ffb72b;">
                         <tr>
-                            <th class="table orange">Pedidos</th>
-                            <th class="table orange">Sucursal</th>
-                            <th class="table orange">Estados</th>
+                            <th>Nombre</th>
+                            <th>Fecha</th>
+                            <th>Descripcion</th>
+                            <th>Sucursal</th>
+                            <th>Estado</th>
+                            <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($aPedidos as $pedido)
                         <tr>
                             <td>{{$pedido->nombre}}</td>
+                            <td>{{$pedido->fecha}}</td>
+                            <td>{{$pedido->descripcion}}</td>
                             <td>{{$pedido->sucursal}}</td>
                             <td>{{$pedido->estado}}</td>
+                            <td>{{$pedido->total}}</td>
                         </tr>
                         @endforeach
                     </tbody>

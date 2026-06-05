@@ -24,15 +24,18 @@
                             <input type="password" name="txtClave" id="txtClave" class="form-control" placeholder="Contraseña" />
                         </div>
                         <div class="btn_box pb-4">
-                            <div class="ps-5">
-                                <button type="submit" name="btnIngresar" id="btnIngresar" class="mr-4 border-0">INGRESAR</button>
-                                <a href="/recuperar-clave" name="btnRegistrarse" id="btnRegistrarse" class="mr-4 border-0">RECUPERAR CLAVE</a>
+                            <div class="ps-2 justify-content-center align-items-center">
+                                <button type="submit" name="btnIngresar" id="btnIngresar" class="m-0 border-0">INGRESAR</button>
                             </div>
                         </div>
                     </form>
                     <div class="pt-0 pb-2">
                         <span>¿Todavía no te registraste?</span>
                         <a href="/registrarse" style="all: unset; cursor: pointer; color: #0000ee;">Regístrate</a>
+                    </div>
+                    <div class="pt-0 pb-2">
+                        <span>¿Olvidaste tu clave?</span>
+                        <a href="/recuperar-clave" style="all: unset; cursor: pointer; color: #0000ee;">Regístrate</a>
                     </div>
                 </div>
             </div>

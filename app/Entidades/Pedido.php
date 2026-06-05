@@ -18,6 +18,7 @@ class Pedido extends Model {
         $this->idpedido = $request->input('id') != "0" ? $request->input('id') : $this->idpedido;
         $this->fecha = $request->input('txtFecha');
         $this->nombre = $request->input('txtNombre');
+        $this->descripcion = $request->input('txtDescripcion');
         $this->total = $request->input('txtTotal');
         $this->fk_idsucursal = $request->input('lstSucursal');
         $this->fk_idcliente = $request->input('lstCliente');
@@ -29,14 +30,16 @@ class Pedido extends Model {
         $sql = "INSERT INTO pedidos (
                 fecha,
                 nombre,
+                descripcion,
                 total,
                 fk_idsucursal,
                 fk_idcliente,
                 fk_idestado
-            ) VALUES (?, ?, ?, ?, ?, ?);";
+            ) VALUES (?, ?, ?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->fecha,
             $this->nombre,
+            $this->descripcion,
             $this->total,
             $this->fk_idsucursal,
             $this->fk_idcliente,
@@ -50,6 +53,7 @@ class Pedido extends Model {
         $sql = "UPDATE pedidos SET
             fecha='$this->fecha',
             nombre='$this->nombre',
+            descripcion='$this->descripcion',
             fk_idsucursal=$this->fk_idsucursal,
             fk_idcliente=$this->fk_idcliente,
             fk_idestado=$this->fk_idestado
@@ -69,6 +73,7 @@ class Pedido extends Model {
         $sql = "SELECT
                 fecha,
                 nombre,
+                descripcion,
                 total,
                 fk_idsucursal,
                 fk_idcliente,
@@ -84,6 +89,7 @@ class Pedido extends Model {
                 idpedido,
                 fecha,
                 nombre,
+                descripcion,
                 total,
                 fk_idsucursal,
                 fk_idcliente,
@@ -94,6 +100,7 @@ class Pedido extends Model {
         if (count($lstRetorno) > 0) {
             $this->idpedido = $lstRetorno[0]->idpedido;
             $this->nombre = $lstRetorno[0]->nombre;
+            $this->descripcion = $lstRetorno[0]->descripcion;
             $this->total = $lstRetorno[0]->total;
             $this->fk_idsucursal = $lstRetorno[0]->fk_idsucursal;
             $this->fk_idcliente = $lstRetorno[0]->fk_idcliente;
@@ -116,6 +123,7 @@ class Pedido extends Model {
                     A.idpedido,
                     A.fecha,
                     A.nombre,
+                    A.descripcion,
                     A.total,
                     A.fk_idsucursal,
                     A.fk_idcliente,
@@ -157,6 +165,7 @@ class Pedido extends Model {
                     A.idpedido,
                     A.fecha,
                     A.nombre,
+                    A.descripcion,
                     A.total,
                     A.fk_idsucursal,
                     A.fk_idcliente,
@@ -181,6 +190,7 @@ class Pedido extends Model {
                 idpedido,
                 fecha,
                 nombre,
+                descripcion,
                 total,
                 fk_idsucursal,
                 fk_idcliente,
@@ -197,6 +207,7 @@ class Pedido extends Model {
                 idpedido,
                 fecha,
                 nombre,
+                descripcion,
                 total,
                 fk_idsucursal,
                 fk_idcliente,
@@ -213,6 +224,7 @@ class Pedido extends Model {
                 A.idpedido,
                 A.fecha,
                 A.nombre,
+                A.descripcion,
                 A.total,
                 A.fk_idsucursal,
                 A.fk_idcliente,

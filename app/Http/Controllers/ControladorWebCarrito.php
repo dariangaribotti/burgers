@@ -35,7 +35,7 @@ class ControladorWebCarrito extends Controller
         $carrito = new Carrito();
         $aCarritos = $carrito->obtenerPorCliente($id);
 
-        if (isset($_GET["do"]) && $_GET["do"] == "eliminar") {
+        if(isset($_GET["do"]) && $_GET["do"] == "eliminar") {
             $pos = $_GET["pos"];
             $carrito->idcarrito = $aCarritos[$pos]->idproducto;
             $carrito->eliminar();
