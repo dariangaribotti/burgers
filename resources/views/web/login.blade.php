@@ -23,13 +23,17 @@
                         <div>
                             <input type="password" name="txtClave" id="txtClave" class="form-control" placeholder="Contraseña" />
                         </div>
-                        <div class="btn_box pb-5">
+                        <div class="btn_box pb-4">
                             <div class="ps-5">
                                 <button type="submit" name="btnIngresar" id="btnIngresar" class="mr-4 border-0">INGRESAR</button>
                                 <a href="/recuperar-clave" name="btnRegistrarse" id="btnRegistrarse" class="mr-4 border-0">RECUPERAR CLAVE</a>
                             </div>
                         </div>
                     </form>
+                    <div class="pt-0 pb-2">
+                        <span>¿Todavía no te registraste?</span>
+                        <a href="/registrarse" style="all: unset; cursor: pointer; color: #0000ee;">Regístrate</a>
+                    </div>
                 </div>
             </div>
         </div>

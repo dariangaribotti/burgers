@@ -42,9 +42,9 @@
     <header class="header_section">
       <div class="container">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="index.html">
+          <a class="navbar-brand" href="/">
             <span>
-              Feane
+              Burger
             </span>
           </a>
 
@@ -153,25 +153,25 @@
         <div class="col-md-4 footer-col">
           <div class="footer_contact">
             <h4>
-              Contact Us
+              Contacto
             </h4>
             <div class="contact_link_box">
               <a href="">
                 <i class="fa fa-map-marker" aria-hidden="true"></i>
                 <span>
-                  Location
+                  Ubicacion
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-phone" aria-hidden="true"></i>
                 <span>
-                  Call +01 1234567890
+                  Llama al +1234567890
                 </span>
               </a>
               <a href="">
                 <i class="fa fa-envelope" aria-hidden="true"></i>
                 <span>
-                  demo@gmail.com
+                  burger@gmail.com
                 </span>
               </a>
             </div>
@@ -180,10 +180,10 @@
         <div class="col-md-4 footer-col">
           <div class="footer_detail">
             <a href="" class="footer-logo">
-              Feane
+              Burger
             </a>
             <p>
-              Necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with
+              No hacemos comida rápida, nos tomamos el tiempo de armar la hamburguesa perfecta para que cada mordisco valga la pena.
             </p>
             <div class="footer_social">
               <a href="">
@@ -206,20 +206,20 @@
         </div>
         <div class="col-md-4 footer-col">
           <h4>
-            Opening Hours
+            Horario de apertura
           </h4>
           <p>
-            Everyday
+            Todos los dias
           </p>
           <p>
-            10.00 Am -10.00 Pm
+            10:00 AM - 10:00 PM
           </p>
         </div>
       </div>
       <div class="footer-info">
         <p>
           &copy; <span id="displayYear"></span> All Rights Reserved By
-          <a href="https://html.design/">Free Html Templates</a><br><br>
+          <a href="https://html.design/">DepcSuite</a><br><br>
           &copy; <span id="displayYear"></span> Distributed By
           <a href="https://themewagon.com/" target="_blank">ThemeWagon</a>
         </p>
