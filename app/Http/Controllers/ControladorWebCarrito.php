@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Entidades\Carrito;
+use App\Entidades\Pedido;
 use App\Entidades\Producto;
 
 use Session;
@@ -14,11 +15,13 @@ class ControladorWebCarrito extends Controller
     {
         $id = Session::get("idCliente");
         $carrito = new Carrito();
+        $pedido = new Pedido();
+        $aPedidos = $pedido->obtenerPorCliente($id);
 
         //Recibo las cosas que agregue en takeaway
         if (isset($id) && $id != "") {
             $aCarritos = $carrito->obtenerPorCliente($id);
-            return view("web.carrito", compact("aCarritos"));
+            return view("web.carrito", compact("aCarritos", "aPedidos"));
         } else {
             $msg["ESTADO"] = "danger";
             $msg["MSG"] = "Debes iniciar sesión para agregar productos al carrito";
