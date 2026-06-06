@@ -29,25 +29,32 @@ class ControladorWebCarrito extends Controller
         }
     }
 
-    public function ingresarCompra(Request $request) {}
-
-    public function eliminar()
+    public function procesar(Request $request)
     {
+        if (isset($_POST["btnEliminar"])) {
+            return $this->eliminar($request);
+        } else if (isset($_POST["btnComprar"])) {
+            return $this->ingresarCompra($request);
+        }
+    }
+
+    public function ingresarCompra() {}
+
+    public function eliminar(Request $request)
+    {   
         $id = Session::get("idCliente");
 
-        $carrito = new Carrito();
-        $aCarritos = $carrito->obtenerPorCliente($id);
-
-        if(isset($_GET["do"]) && $_GET["do"] == "eliminar") {
-            $pos = $_GET["pos"];
-            $carrito->idcarrito = $aCarritos[$pos]->idproducto;
+        if($id != ""){
+            $carrito = new Carrito();
+            $idCarrito = $request->input("txtCarrito"); 
+            $carrito->idcarrito = $idCarrito;
             $carrito->eliminar();
             $msg["ESTADO"] = "success";
             $msg["MSG"] = "Producto eliminado";
-            return view("web.carrito", compact("msg"));
+            return redirect("/carrito");
         } else {
             $msg["ESTADO"] = "danger";
-            $msg["MSG"] = "Intenta mas tarde";
+            $msg["MSG"] = "Tiene que iniciar sesion para eliminar";
             return view("web.carrito", compact("msg"));
         }
     }

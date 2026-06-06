@@ -92,10 +92,12 @@ class Carrito extends Model {
 
     public function obtenerPorCliente($idCliente){
         $sql = "SELECT 
+                    A.idcarrito,
                     B.imagen, 
                     B.nombre,
                     B.precio,
-                    B.descripcion
+                    B.descripcion,
+                    A.cantidad
                 FROM productos B
                 INNER JOIN carritos A ON B.idproducto = A.fk_idproducto
                 WHERE A.fk_idcliente = ?"   ;
