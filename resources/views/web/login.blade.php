@@ -31,11 +31,11 @@
                     </form>
                     <div class="pt-0 pb-2">
                         <span>¿Todavía no te registraste?</span>
-                        <a href="/registrarse" style="all: unset; cursor: pointer; color: #0000ee;">Regístrate</a>
+                        <a href="/registrarse" style="all: unset; cursor: pointer; color: #0000ee;">Registrarse</a>
                     </div>
                     <div class="pt-0 pb-2">
                         <span>¿Olvidaste tu clave?</span>
-                        <a href="/recuperar-clave" style="all: unset; cursor: pointer; color: #0000ee;">Regístrate</a>
+                        <a href="/recuperar-clave" style="all: unset; cursor: pointer; color: #0000ee;">Recuperar</a>
                     </div>
                 </div>
             </div>

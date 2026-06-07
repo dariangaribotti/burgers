@@ -58,16 +58,16 @@ class ControladorWebRecuperarClave extends Controller
         //$mail->send();
         $msg["MSG"] = "Se ha cambiado correctamente la clave";
         $msg["ESTADO"] = "success";
-        return view('web.recuperar-clave', compact('titulo', 'mensaje'));
+        return view('web.recuperar-clave', compact('titulo', 'msg'));
       } catch (Exception $e) {
         $msg["MSG"] = "Hubo un error al cambiar la clave";
         $msg["ESTADO"] = "danger";
-        return view('web.recuperar-clave', compact('titulo', 'mensaje'));
+        return view('web.recuperar-clave', compact('titulo', 'msg'));
       }
     } else {
       $msg["MSG"] = "Complete los datos";
       $msg["ESTADO"] = "danger";
-      return view('web.recuperar-clave', compact('titulo', 'mensaje'));
+      return view('web.recuperar-clave', compact('titulo', 'msg'));
     }
   }
 }
