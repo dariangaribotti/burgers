@@ -17,15 +17,15 @@ class ControladorWebCarrito extends Controller
         $carrito = new Carrito();
         $pedido = new Pedido();
         $aPedidos = $pedido->obtenerPorCliente($id);
+        $aCarritos = $carrito->obtenerPorCliente($id);
 
         //Recibo las cosas que agregue en takeaway
         if (isset($id) && $id != "") {
-            $aCarritos = $carrito->obtenerPorCliente($id);
             return view("web.carrito", compact("aCarritos", "aPedidos"));
         } else {
             $msg["ESTADO"] = "danger";
             $msg["MSG"] = "Debes iniciar sesión para agregar productos al carrito";
-            return view("web.carrito", compact("msg"));
+            return view("web.carrito", compact("msg", "aCarritos", "aPedidos"));
         }
     }
 
@@ -38,7 +38,16 @@ class ControladorWebCarrito extends Controller
         }
     }
 
-    public function ingresarCompra() {}
+    public function ingresarCompra(Request $request){
+        $id = Session::get("idCliente");
+
+        $sucursal = $request->input("lstSucursal");
+        $metodoPago = $request->input("lstMetodoPago");
+
+        if($id != ""){
+            
+        }
+    }
 
     public function eliminar(Request $request)
     {   

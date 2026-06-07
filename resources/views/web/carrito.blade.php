@@ -66,13 +66,13 @@
                                 <label for="lstSucursal" class="form-label small d-block text-secondary">Sucursal de retiro:</label>
                                 <select name="lstSucursal" class="form-select w-100 bg-light" id="lstSucursal">
                                     @foreach($aPedidos as $pedido)
-                                    <option value="{{ $pedido->idpedido }}">{{ $pedido->sucursal }}</option>
+                                    <option value="{{ $pedido->fk_idsucursal }}">{{ $pedido->sucursal }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="mb-4">
                                 <label for="lstMetodoPago" class="form-label small d-block text-start pt-5 text-secondary">Metodo de pago:</label>
-                                <select name="lstMetodoPago" class="form-select w-100 bg-light" id="lstSucursal">
+                                <select name="lstMetodoPago" id="lstMetodoPago" class="form-select w-100 bg-light">
                                     <option value="efectivo">Efectivo</option>
                                     <option value="mercadopago">Mercado Pago</option>
                                 </select>

@@ -13,8 +13,7 @@ class ControladorWebContacto extends Controller
 {
     public function index()
     {   
-        $pg = "contacto";
-        return view("web.contacto", compact('pg'));
+        return view("web.contacto");
     }
 
     public function contactoGracias(Request $request)

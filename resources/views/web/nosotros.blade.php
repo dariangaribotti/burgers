@@ -113,11 +113,11 @@
               </div>
               <div>
                 <h6>Envíanos tu CV</h6>
-                <input type="file" name="fileCurriculum" id="fileCurriculum" accept=".doc, .docx, .pdf" placeholder="Curriculum" />
+                <input type="file" name="archivo" id="archivo" accept=".doc, .docx, .pdf" placeholder="Curriculum" />
                 <small class="d-block">Archivos admitidos: .doc, .docx, .pdf</small>
               </div>
               <div class="btn_box d-flex justify-content-center">
-                <button type="submit">POSTULARSE</button>
+                <button type="submit" name="btnPostulacion" id="btnPostulacion">POSTULARSE</button>
               </div>
             </form>
           </div>

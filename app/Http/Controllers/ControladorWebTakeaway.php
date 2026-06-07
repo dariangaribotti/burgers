@@ -13,12 +13,11 @@ class ControladorWebTakeaway extends Controller
 {
     public function index()
     {   
-        $pg = "takeaway";
         $producto = new Producto();
         $categoria = new Categoria();
         $aProductos = $producto->obtenerPorCategoria();
         $aCategorias = $categoria->obtenerTodos();
-        return view("web.takeaway", compact('pg', 'aProductos', 'aCategorias'));
+        return view("web.takeaway", compact('aProductos', 'aCategorias'));
     }
 
     public function ingresar(Request $Request){

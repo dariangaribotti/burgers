@@ -16,7 +16,7 @@
                       Disfruta del auténtico sabor de nuestras hamburguesas artesanales, preparadas con ingredientes frescos y carne de la mejor calidad. Una experiencia única en cada bocado que te hará volver por más. ¡Haz tu pedido ahora!
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="/takeaway" class="btn1">
                         Ordenar ahora
                       </a>
                     </div>
@@ -36,7 +36,7 @@
                     <p>
                       Disfruta del auténtico sabor de nuestras hamburguesas artesanales, preparadas con ingredientes frescos y carne de la mejor calidad. Una experiencia única en cada bocado que te hará volver por más. ¡Haz tu pedido ahora!
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="/takeaway" class="btn1">
                         Ordenar ahora
                       </a>
                     </div>
@@ -57,7 +57,7 @@
                       Disfruta del auténtico sabor de nuestras hamburguesas artesanales, preparadas con ingredientes frescos y carne de la mejor calidad. Una experiencia única en cada bocado que te hará volver por más. ¡Haz tu pedido ahora!
                     </p>
                     <div class="btn-box">
-                      <a href="" class="btn1">
+                      <a href="/takeaway" class="btn1">
                         Ordenar ahora
                       </a>
                     </div>
@@ -96,7 +96,7 @@
                 <h6>
                   <span>20%</span> Off
                 </h6>
-                <a href="">
+                <a href="/takeaway">
                   Ordena ahora <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                     <g>
                       <g>
@@ -165,7 +165,7 @@
                 <h6>
                   <span>15%</span> Off
                 </h6>
-                <a href="">
+                <a href="/takeaway">
                   Ordena ahora <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 456.029 456.029" style="enable-background:new 0 0 456.029 456.029;" xml:space="preserve">
                     <g>
                       <g>
