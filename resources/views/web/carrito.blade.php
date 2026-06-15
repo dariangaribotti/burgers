@@ -60,11 +60,20 @@
                         <div class="pb-4">
                             <h5>Detalles del pago</h5>
                         </div>
+                        <?php 
+                        $total = 0;
+                        foreach($aCarritos as $carrito){
+                        $total += $carrito->precio * $carrito->cantidad;
+                        }
+                        ?>
+                        <div class="pb-4">
+                            <h2>Total: {{ number_format($total, 0, ",", ".") }}</h2>
+                        </div>
                         <form action="/carrito" method="POST">
                             @csrf
                             <div class="mb-4">
                                 <label for="lstSucursal" class="form-label small d-block text-secondary">Sucursal de retiro:</label>
-                                <select name="lstSucursal" class="form-select w-100 bg-light" id="lstSucursal">
+                                <select name="lstSucursal" id="lstSucursal" class="form-select w-100 bg-light">
                                     @foreach($aPedidos as $pedido)
                                     <option value="{{ $pedido->fk_idsucursal }}">{{ $pedido->sucursal }}</option>
                                     @endforeach
@@ -73,8 +82,8 @@
                             <div class="mb-4">
                                 <label for="lstMetodoPago" class="form-label small d-block text-start pt-5 text-secondary">Metodo de pago:</label>
                                 <select name="lstMetodoPago" id="lstMetodoPago" class="form-select w-100 bg-light">
-                                    <option value="efectivo">Efectivo</option>
-                                    <option value="mercadopago">Mercado Pago</option>
+                                    <option value="Efectivo">Efectivo</option>
+                                    <option value="Mercadopago">MercadoPago</option>
                                 </select>
                             </div>
                             <div class="py-5">

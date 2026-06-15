@@ -23,10 +23,10 @@
                     <form action="/cambiar-clave" method="POST">
                         @csrf
                         <div>
-                            <input type="password" name="txtClave" id="txtClave" class="form-control" placeholder="Contraseña" required />
+                            <input type="password" name="txtClave1" id="txtClave1" class="form-control" placeholder="Contraseña" required />
                         </div>
                         <div>
-                            <input type="password" name="txtClave" id="txtClave" class="form-control" placeholder="Repetir contraseña" required />
+                            <input type="password" name="txtClave2" id="txtClave2" class="form-control" placeholder="Repetir contraseña" required />
                         </div>
                         <div class="btn_box pb-5">
                             <div class="ps-5">

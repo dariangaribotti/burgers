@@ -6,8 +6,6 @@ use App\Entidades\Cliente;
 use Illuminate\Http\Request;
 use Session;
 
-require app_path() . '/start/constants.php';
-
 class ControladorWebCambiarClave extends Controller
 {
     public function index()
@@ -18,27 +16,26 @@ class ControladorWebCambiarClave extends Controller
         } else {
             return redirect('/login');
         }
-        
     }
 
     public function cambiarClave(Request $request)
-    {
-        $claveIngresada = $request->input('txtClave');
+    {   
+        $cliente = new Cliente();
         $id = Session::get('idCliente');
+        $clave1 = $request->input('txtClave1');
+        $clave2 = $request->input('txtClave2');
 
-        if ($id != "") {
-            $cliente = new Cliente();
-            $cliente->idcliente = $id;
-            $cliente->clave = password_hash($claveIngresada, PASSWORD_DEFAULT);
-            $cliente->actualizarClave();
+        if($clave1 != "" && $clave1 == $clave2){
+            $cliente->obtenerPorId($id);
+            $cliente->clave = password_hash($clave1, PASSWORD_DEFAULT);
+            $cliente->guardar();
 
             $msg['ESTADO'] = "success";
-            $msg['MSG'] = "Clave actualizada con exito";
+            $msg['MSG'] = "Clave actualizada con exito.";
             return view('web.cambiar-clave', compact('msg'));
         } else {
             $msg['ESTADO'] = "danger";
-            $msg['MSG'] = "Error: Sesión no válida.";
-
+            $msg['MSG'] = "Las claves no coinciden.";
             return view('web.cambiar-clave', compact('msg'));
         }
     }
