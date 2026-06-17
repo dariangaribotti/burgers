@@ -40,18 +40,6 @@ if (isset($msg)) {
             <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
             <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}">
             <div class="form-group col-lg-6">
-                <label>Sucursal: *</label>
-                <select name="lstSucursal" id="lstSucursal" class="form-control">
-                  <option value="">Seleccionado</option>
-                        @foreach($aSucursales as $sucursal)
-                        <option value="{{ $sucursal->idsucursal }}"
-                        @if(isset($sucursal->idsucursal) && $sucursal->idsucursal == $pedido->fk_idsucursal) selected @endif>{{ $sucursal->nombre }}</option>
-                        @endforeach
-                </select>
-            </div>
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}">
-            <div class="form-group col-lg-6">
                 <label>Cliente: *</label>
                 <select name="lstCliente" id="lstCliente" class="form-control">
                   <option value="">Seleccionado</option>
@@ -61,10 +49,22 @@ if (isset($msg)) {
                   @endforeach
                 </select>
             </div>
+            <div class="form-group col-lg-6">
+                <label>Fecha: *</label>
+                <input type="date" id="txtFecha" name="txtFecha" class="form-control" value="{{ isset($pedido->fecha) && $pedido->fecha != '' ? date('Y-m-d', strtotime($pedido->fecha)) : date('Y-m-d') }}" required>
+            </div>
         </div>
         <div class="row">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}">
+            <div class="form-group col-lg-6">
+                <label>Sucursal: *</label>
+                <select name="lstSucursal" id="lstSucursal" class="form-control">
+                  <option value="">Seleccionado</option>
+                        @foreach($aSucursales as $sucursal)
+                        <option value="{{ $sucursal->idsucursal }}"
+                        @if(isset($sucursal->idsucursal) && $sucursal->idsucursal == $pedido->fk_idsucursal) selected @endif>{{ $sucursal->nombre }}</option>
+                        @endforeach
+                </select>
+            </div>
             <div class="form-group col-lg-6">
                 <label>Estado: *</label>
                 <select name="lstEstado" id="lstEstado" class="form-control">
@@ -75,22 +75,16 @@ if (isset($msg)) {
                     @endforeach
                 </select>
             </div>
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
-            <div class="form-group col-lg-6">
-                <label>Fecha: *</label>
-                <input type="date" id="txtFecha" name="txtFecha" class="form-control" value="{{ old('txtFecha', $pedido->fecha ?? '') }}" required>
-            </div>
         </div>
         <div class="row">
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
-                <label>Descripción: *</label>
-                <input type="text" id="txtDescripcion" name="txtDescripcion" class="form-control" value="{{$pedido->descripcion}}" required>
+                <label for="">Metodo de pago: </label>
+                <select name="lstPago" id="lstPago" class="form-control">
+                    <option value="">Selected</option>
+                    <option value="Mercadopago">Mercado Pago</option>
+                    <option value="Efectivo">Efectivo</option>
+                </select>
             </div>
-            <input type="hidden" name="_token" value="{{ csrf_token() }}"></input>
-            <input type="hidden" id="id" name="id" class="form-control" value="{{$globalId}}" required>
             <div class="form-group col-lg-6">
                 <label>Total: *</label>
                 <input type="number" id="txtTotal" name="txtTotal" class="form-control" value="{{$pedido->total}}" required>

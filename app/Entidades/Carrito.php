@@ -63,7 +63,7 @@ class Carrito extends Model {
     {
         $sql = "DELETE 
                 FROM carritos 
-                WHERE idcarrito=?";
+                WHERE fk_idcliente=?";
         $affected = DB::delete($sql, [$idCliente]);
     }
 
@@ -101,10 +101,11 @@ class Carrito extends Model {
     public function obtenerPorCliente($idCliente){
         $sql = "SELECT 
                     A.idcarrito,
-                    B.imagen, 
+                    A.fk_idproducto,
                     B.nombre,
-                    B.precio,
                     B.descripcion,
+                    B.imagen, 
+                    B.precio,
                     A.cantidad
                 FROM productos B
                 INNER JOIN carritos A ON B.idproducto = A.fk_idproducto

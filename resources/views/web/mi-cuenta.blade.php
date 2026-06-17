@@ -54,23 +54,21 @@
                 <table class="table table-hover table-borderless">
                     <thead style="background-color: #ffb72b;">
                         <tr>
-                            <th>Nombre</th>
-                            <th>Fecha</th>
-                            <th>Descripcion</th>
                             <th>Sucursal</th>
+                            <th>Pedido</th>
                             <th>Estado</th>
+                            <th>Fecha</th>
                             <th>Total</th>
                         </tr>
                     </thead>
                     <tbody>
                         @foreach($aPedidos as $pedido)
                         <tr>
-                            <td>{{$pedido->nombre}}</td>
-                            <td>{{$pedido->fecha}}</td>
-                            <td>{{$pedido->descripcion}}</td>
                             <td>{{$pedido->sucursal}}</td>
+                            <td>{{$pedido->idpedido}}</td>
                             <td>{{$pedido->estado}}</td>
-                            <td>{{$pedido->total}}</td>
+                            <td>{{strftime('%d-%m-%Y', $pedido->fecha)}}</td>
+                            <td>${{number_format($pedido->total, 0, ",", ".")}}</td>
                         </tr>
                         @endforeach
                     </tbody>

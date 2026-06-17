@@ -1,6 +1,6 @@
 <?php 
 
-namespace App\Entidades\Sistema;
+namespace App\Entidades;
 
 use DB;
 use Illuminate\Database\Eloquent\Model;
@@ -30,14 +30,14 @@ class Pedido_producto extends Model {
                 fk_idproducto,
                 cantidad,
                 preciounitario,
-                total,
+                total
             ) VALUES (?, ?, ?, ?, ?);";
         $result = DB::insert($sql, [
             $this->fk_idpedido,
             $this->fk_idproducto,
             $this->cantidad,
             $this->preciounitario,
-            $this->total,
+            $this->total
         ]);
         return $this->idpedido_producto = DB::getPdo()->lastInsertId();
     }

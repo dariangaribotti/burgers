@@ -12,7 +12,7 @@
             {{ $msg['MSG'] }}
         </div>
         @endif
-        @if(isset($aCarritos))
+        @if(count($aCarritos) > 0)
         <div class="row gx-4">
             <div class="col-md-6 px-0">
                 <div class="card px-3 h-100 shadow-sm">
@@ -50,14 +50,10 @@
                     </div>
                 </div>
             </div>
-
-            @else
-            No hay productos seleccionados
-            @endif
             <div class="col-md-5">
                 <div class="card h-100">
                     <div class="btn_box p-4 shadow-sm">
-                        <div class="pb-4">
+                        <div class="pb-2">
                             <h5>Detalles del pago</h5>
                         </div>
                         <?php 
@@ -66,16 +62,16 @@
                         $total += $carrito->precio * $carrito->cantidad;
                         }
                         ?>
-                        <div class="pb-4">
-                            <h2>Total: {{ number_format($total, 0, ",", ".") }}</h2>
+                        <div class="pb-3">
+                            <span>Total: {{ number_format($total, 0, ",", ".") }}</span>
                         </div>
                         <form action="/carrito" method="POST">
                             @csrf
                             <div class="mb-4">
                                 <label for="lstSucursal" class="form-label small d-block text-secondary">Sucursal de retiro:</label>
                                 <select name="lstSucursal" id="lstSucursal" class="form-select w-100 bg-light">
-                                    @foreach($aPedidos as $pedido)
-                                    <option value="{{ $pedido->fk_idsucursal }}">{{ $pedido->sucursal }}</option>
+                                    @foreach($aSucursales as $sucursal)
+                                    <option value="{{ $sucursal->idsucursal }}">{{ $sucursal->nombre }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -95,6 +91,9 @@
                 </div>
             </div>
         </div>
+        @else
+            No hay productos seleccionados
+        @endif
     </div>>
 </section>
 @endsection

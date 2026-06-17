@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Entidades\Carrito;
 use App\Entidades\Pedido;
-use App\Entidades\Producto;
+use App\Entidades\Pedido_producto;
 use App\Entidades\Sucursal;
 use Session;
 
@@ -16,18 +16,12 @@ class ControladorWebCarrito extends Controller
         $id = Session::get("idCliente");
         $carrito = new Carrito();
         $pedido = new Pedido();
+        $sucursal = new Sucursal();
         $aPedidos = $pedido->obtenerPorCliente($id);
         $aCarritos = $carrito->obtenerPorCliente($id);
+        $aSucursales = $sucursal->obtenerTodos();
 
-        //Recibo las cosas que agregue en takeaway
-        if (isset($id) && $id != "") {
-            return view("web.carrito", compact("aCarritos", "aPedidos"));
-        } else {
-            $msg["ESTADO"] = "danger";
-            $msg["MSG"] = "Debes iniciar sesión para agregar productos al carrito";
-            return view("web.carrito", compact("msg", "aCarritos", "aPedidos"));
-        }
-        return view("web.carrito", compact("aCarritos", "aPedidos"));
+        return view("web.carrito", compact("aCarritos", "aPedidos", "aSucursales"));
     }
 
     public function procesar(Request $request)
@@ -49,24 +43,27 @@ class ControladorWebCarrito extends Controller
     $pedido = new Pedido();
 
     $aCarritos = $carrito->obtenerPorCliente($id);
-
     $total = 0;
-    $descripcion = "";
 
-        foreach($aCarritos as $carrito){
-            $total += $carrito->precio * $carrito->cantidad;
-            $descripcion .= "Nombre: " . $carrito->nombre . "Cantidad: " . $carrito->cantidad . ", ";
+        foreach($aCarritos as $item){
+            $total += $item->precio * $item->cantidad;
         }
+        
     $pedido->fecha = date("Y-m-d");
-    $pedido->descripcion = $descripcion;
-    $pedido->nombre = "Compra Web";
     $pedido->total = $total;
     $pedido->fk_idsucursal = $lstSucursal;
     $pedido->fk_idcliente = $id;
-    $pedido->fk_idestado = 2;
+    $pedido->fk_idestado = 1;
     $pedido->pago = $lstPago;
-
     $pedido->insertar();
+
+    $pedido_producto = new Pedido_producto();
+    foreach($aCarritos as $item){
+        $pedido_producto->fk_idproducto = $item->fk_idproducto;
+        $pedido_producto->fk_idpedido = $pedido->idpedido;
+        $pedido_producto->cantidad = $item->cantidad;
+        $pedido_producto->insertar();
+    }
 
     $carrito->eliminarPorCliente($id);
 

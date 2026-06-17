@@ -120,7 +120,7 @@ class ControladorPedido extends Controller
                   $entidad->cargarDesdeRequest($request);
 
                   //validaciones
-                  if ($entidad->descripcion == "") {
+                  if ($entidad->fk_idcliente == "") {
                         $msg["ESTADO"] = MSG_ERROR;
                         $msg["MSG"] = "Complete todos los datos";
                   } else {
@@ -169,11 +169,11 @@ class ControladorPedido extends Controller
             for ($i = $inicio; $i < count($aPedidos) && $cont < $registros_por_pagina; $i++) {
                   $row = array();
                   $row[] = '<a href="/admin/pedido/' . $aPedidos[$i]->idpedido . '">' . $aPedidos[$i]->cliente . '</a>';
-                  $row[] = $aPedidos[$i]->nombre;
-                  $row[] = number_format($aPedidos[$i]->total, 2, ',', '.');
                   $row[] = $aPedidos[$i]->fecha;
                   $row[] = $aPedidos[$i]->sucursal;
                   $row[] = $aPedidos[$i]->estado;
+                  $row[] = $aPedidos[$i]->pago;
+                  $row[] = number_format($aPedidos[$i]->total, 2, ',', '.');
                   $cont++;
                   $data[] = $row;
             }
