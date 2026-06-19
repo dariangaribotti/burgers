@@ -11,7 +11,7 @@ class Pedido extends Model {
     public $timestamps = false;
 
     protected $fillable = [ //Protege la base datos de cualquier inyección.
-    'idpedido', 'fecha', 'total', 'fk_idsucursal', 'fk_idcliente', 'fk_idestado'
+    'idpedido', 'fecha', 'total', 'fk_idsucursal', 'fk_idcliente', 'fk_idestado', 'pago'
     ];
 
     public function cargarDesdeRequest($request) {

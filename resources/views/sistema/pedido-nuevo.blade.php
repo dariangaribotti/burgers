@@ -81,8 +81,8 @@ if (isset($msg)) {
                 <label for="">Metodo de pago: </label>
                 <select name="lstPago" id="lstPago" class="form-control">
                     <option value="">Selected</option>
-                    <option value="Mercadopago">Mercado Pago</option>
-                    <option value="Efectivo">Efectivo</option>
+                    <option @if($pedido->pago == "Mercadopago") selected @endif value="Mercadopago">Mercado Pago</option>
+                    <option @if($pedido->pago == "Efectivo") selected @endif value="Efectivo">Efectivo</option>
                 </select>
             </div>
             <div class="form-group col-lg-6">

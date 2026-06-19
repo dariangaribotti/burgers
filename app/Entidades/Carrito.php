@@ -11,7 +11,7 @@ class Carrito extends Model {
     public $timestamps = false;
 
     protected $fillable = [ //Protege la base datos de cualquier inyección.
-    'idcarrito', 'fk_idcliente', 'cantidad'
+    'idcarrito', 'fk_idcliente', 'fk_idproducto', 'cantidad'
     ];
 
     public function cargarDesdeRequest($request) {

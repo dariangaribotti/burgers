@@ -63,13 +63,15 @@
                     </thead>
                     <tbody>
                         @foreach($aPedidos as $pedido)
-                        <tr>
-                            <td>{{$pedido->sucursal}}</td>
-                            <td>{{$pedido->idpedido}}</td>
-                            <td>{{$pedido->estado}}</td>
-                            <td>{{strftime('%d-%m-%Y', $pedido->fecha)}}</td>
-                            <td>${{number_format($pedido->total, 0, ",", ".")}}</td>
-                        </tr>
+                            @if($pedido->estado != "Entregado")
+                            <tr>
+                                <td>{{$pedido->sucursal}}</td>
+                                <td>{{$pedido->idpedido}}</td>
+                                <td>{{$pedido->estado}}</td>
+                                <td>{{$pedido->fecha}}</td>
+                                <td>${{number_format($pedido->total, 0, ",", ".")}}</td>
+                            </tr>
+                            @endif
                         @endforeach
                     </tbody>
                 </table>
