@@ -24,7 +24,7 @@ class ControladorWebContacto extends Controller
     $numero = $request->input('txtNumero');
     $descripcion = $request->input('txtDescripcion');
 
-    if ($nombre != "" && $email != "" && $numero != "" && $descripcion != ""){
+    if($request->filled("txtNombre", "txtEmail", "txtNumero", "txtDescripcion")){
       //Envia  mail con las instrucciones
 
       $data = "Instrucciones";
@@ -55,9 +55,8 @@ class ControladorWebContacto extends Controller
         Numero: $numero
         Descripción: $descripcion
         ";
-        //$mail->send(burger....);
-        $mensaje = "Se ha enviado correctamente el mensaje";
-        return view('web.recuperar-clave', compact('titulo', 'mensaje'), redirect('/contacto-gracias'));
+        $mail->send();
+        redirect('/contacto-gracias');
       } catch (Exception $e) {
         $mensaje = "Hubo un error al enviar el mensaje";
         return view('web.recuperar-clave', compact('titulo', 'mensaje'));

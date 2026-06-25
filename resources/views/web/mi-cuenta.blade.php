@@ -63,15 +63,13 @@
                     </thead>
                     <tbody>
                         @foreach($aPedidos as $pedido)
-                            @if($pedido->estado != "Entregado")
-                            <tr>
-                                <td>{{$pedido->sucursal}}</td>
-                                <td>{{$pedido->idpedido}}</td>
-                                <td>{{$pedido->estado}}</td>
-                                <td>{{$pedido->fecha}}</td>
-                                <td>${{number_format($pedido->total, 0, ",", ".")}}</td>
-                            </tr>
-                            @endif
+                        <tr>
+                            <td>{{$pedido->sucursal}}</td>
+                            <td>{{$pedido->idpedido}}</td>
+                            <td>{{$pedido->estado}}</td>
+                            <td>{{$pedido->fecha}}</td>
+                            <td>${{number_format($pedido->total, 0, ",", ".")}}</td>
+                        </tr>
                         @endforeach
                     </tbody>
                 </table>

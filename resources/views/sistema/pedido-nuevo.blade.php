@@ -17,7 +17,7 @@
     <li class="btn-item"><a title="Guardar" href="#" class="fa fa-floppy-o" aria-hidden="true" onclick="javascript: $('#modalGuardar').modal('toggle');"><span>Guardar</span></a>
     </li>
     @if($globalId > 0)
-    <li class="btn-item"><a title="Guardar" href="#" class="fa fa-trash-o" aria-hidden="true" onclick="javascript: $('#mdlEliminar').modal('toggle');"><span>Eliminar</span></a></li>
+    <li class="btn-item"><a title="Eliminar" href="#" class="fa fa-trash-o" aria-hidden="true" onclick="javascript: $('#mdlEliminar').modal('toggle');"><span>Eliminar</span></a></li>
     @endif
     <li class="btn-item"><a title="Salir" href="#" class="fa fa-arrow-circle-o-left" aria-hidden="true" onclick="javascript: $('#modalSalir').modal('toggle');"><span>Salir</span></a></li>
 </ol>
@@ -90,6 +90,35 @@ if (isset($msg)) {
                 <input type="number" id="txtTotal" name="txtTotal" class="form-control" value="{{$pedido->total}}" required>
             </div>
         </div>
+        @if($pedido->idpedido > 0)
+        <div class="row">
+            <div class="col-12">
+                <div>
+                    <label class="py-3">Listado de productos:</label>
+                </div>
+                <div>
+                    <table class="table table-hover">
+                        <thead class="bg-warning">
+                            <tr>
+                                <th>Imagen</th>
+                                <th>Nombre</th>
+                                <th>Cantidad</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($aPedidos as $pedido)
+                            <tr>
+                                <td><img src="/files/{{$pedido->imagen}}" alt="" class="img-thumbnail" style="width: 100px; height: 100px; object-fit: cover;"></td>
+                                <td>{{$pedido->nombre}}</td>
+                                <td>{{$pedido->cantidad}}</td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div> 
+            </div>
+        </div>
+        @endif
     </form>
     <script>
         $("#form1").validate();

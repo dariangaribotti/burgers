@@ -10,23 +10,20 @@
       <div class="row">
         <div class="col-md-6">
           <div class="form_container">
-            <form action="">
+            <form action="/contacto" method="POST">
               <div>
-                <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Your Name" />
+                <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Nombre" required/>
               </div>
               <div>
-                <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Your Email" />
+                <input type="email" name="txtEmail" id="txtEmail" class="form-control" placeholder="Correo" required/>
               </div>
               <div>
-                <input type="text" name="txtNumero" id="txtNumero" class="form-control" placeholder="Phone Number" />
+                <input type="text" name="txtNumero" id="txtNumero" class="form-control" placeholder="Phone Number" required/>
               </div>
               <div>
-                <textarea name="txtDescripcion" id="txtDescripcion" class="form-control" placeholder="Description"></textarea>
+                <textarea name="txtDescripcion" id="txtDescripcion" class="form-control" placeholder="Description" required></textarea>
               </div>  
-              <div class="btn_box">
-                <button name="btnEnviar" id="btnEnviar">
-                  ENVIAR
-                <d/button>
+                 <div class="btn_box"><button name="btnEnviar" id="btnEnviar">ENVIAR<d/button>
               </div>
             </form>
           </div>
