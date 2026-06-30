@@ -12,7 +12,7 @@
             {{ $msg['MSG'] }}
         </div>
         @endif
-        @if(count($aCarritos) > 0)
+        @if(isset($aCarritos))
         <div class="row gx-4">
             <div class="col-md-6 px-0">
                 <div class="card px-3 h-100 shadow-sm">

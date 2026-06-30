@@ -56,13 +56,16 @@ class ControladorWebContacto extends Controller
         Descripción: $descripcion
         ";
         $mail->send();
-        redirect('/contacto-gracias');
+        return redirect("/contacto-gracias");
       } catch (Exception $e) {
-        $mensaje = "Hubo un error al enviar el mensaje";
-        return view('web.recuperar-clave', compact('titulo', 'mensaje'));
+        $msg["ESTADO"] = "danger";
+        $msg["MSG"] = "No se pudo enviar el mensaje";
+        return view('web.contacto', compact('titulo', 'msg'));
       }
     } else {
-      return view('web.recuperar-clave', compact('titulo', 'mensaje'));
+      $msg["ESTADO"] = "danger";
+      $msg["MSG"] = "Complete los datos";
+      return view('web.contacto', compact('titulo', 'msg'));
     }
   }
 }

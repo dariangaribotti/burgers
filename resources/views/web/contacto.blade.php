@@ -9,8 +9,14 @@
       </div>
       <div class="row">
         <div class="col-md-6">
+          @if(isset($msg))
+            <div class="alert alert-{{ $msg['ESTADO'] }} alert-dismissible" role="alert">
+                {{ $msg['MSG'] }}
+            </div>
+          @endif
           <div class="form_container">
             <form action="/contacto" method="POST">
+              @csrf
               <div>
                 <input type="text" name="txtNombre" id="txtNombre" class="form-control" placeholder="Nombre" required/>
               </div>
